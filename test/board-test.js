@@ -23,5 +23,9 @@ describe('Board Class', () => {
   describe('Default properties', () => {
     const MY_BOARD = new BoardOnBoardTest();
 
+    it('Board has a xCoord', () => {
+      expectOnBoardTest(MY_BOARD).to.have.property('xCoord');
+      expectOnBoardTest(MY_BOARD.xCoord).to.be.a('number');
+    });
   });
 });
