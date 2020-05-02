@@ -37,5 +37,9 @@ describe('Piece Class', () => {
       expectOnPieceTest(MY_PIECE).to.have.property('size');
       expectOnPieceTest(MY_PIECE.size).to.be.a('number');
     });
+
+    it('Default xCoord is 0', () => {
+      expectOnPieceTest(MY_PIECE.xCoord).to.be.equal(0);
+    });
   });
 });
