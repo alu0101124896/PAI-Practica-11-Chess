@@ -27,5 +27,10 @@ describe('Piece Class', () => {
       expectOnPieceTest(MY_PIECE).to.have.property('xCoord');
       expectOnPieceTest(MY_PIECE.xCoord).to.be.a('number');
     });
+
+    it('Piece has a yCoord', () => {
+      expectOnPieceTest(MY_PIECE).to.have.property('yCoord');
+      expectOnPieceTest(MY_PIECE.yCoord).to.be.a('number');
+    });
   });
 });
