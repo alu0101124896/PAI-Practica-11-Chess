@@ -32,5 +32,10 @@ describe('Piece Class', () => {
       expectOnPieceTest(MY_PIECE).to.have.property('yCoord');
       expectOnPieceTest(MY_PIECE.yCoord).to.be.a('number');
     });
+
+    it('Piece has a size', () => {
+      expectOnPieceTest(MY_PIECE).to.have.property('size');
+      expectOnPieceTest(MY_PIECE.size).to.be.a('number');
+    });
   });
 });
