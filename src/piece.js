@@ -4,7 +4,7 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program implements a piece class for the smiley face.
+ * @description This program implements a piece class for the chess.
  */
 
 "use strict";
