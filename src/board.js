@@ -21,7 +21,8 @@ class Board {
    *
    * @memberof Board
    */
-  constructor() {
+  constructor(xCoord = 0) {
+    this.xCoord = xCoord;
   }
 }
 
