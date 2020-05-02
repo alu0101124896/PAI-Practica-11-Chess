@@ -37,5 +37,9 @@ describe('Board Class', () => {
       expectOnBoardTest(MY_BOARD).to.have.property('size');
       expectOnBoardTest(MY_BOARD.size).to.be.a('number');
     });
+
+    it('Default xCoord is 0', () => {
+      expectOnBoardTest(MY_BOARD.xCoord).to.be.equal(0);
+    });
   });
 });
