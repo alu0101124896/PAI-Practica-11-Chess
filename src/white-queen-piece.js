@@ -31,7 +31,7 @@ class WhiteQueenPiece extends PieceOnWhiteQueenPiece {
   constructor(xCoord = 0, yCoord = 0, size = 10) {
     super(xCoord, yCoord, size);
     if (typeof exports === 'undefined') { // Execution in browser
-      this.img.src = '../img/wQ.jpg'
+      this.img.src = '../img/white-queen-piece.svg'
     }
   }
 }
