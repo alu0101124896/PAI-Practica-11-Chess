@@ -57,5 +57,6 @@ describe('Piece Class', () => {
     it('Modifies default xCoord correctly', () => {
       expectOnPieceTest(MY_PIECE.xCoord).to.be.equal(5);
     });
+
   });
 });
