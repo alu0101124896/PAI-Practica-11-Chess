@@ -19,12 +19,18 @@ class Piece {
   /**
    * @description Constructor that creates an instance of a piece.
    *
+   * @param {number} [xCoord=0]
+   * @param {number} [yCoord=0]
+   * @param {number} [size=10]
    * @memberof Piece
    */
   constructor(xCoord = 0, yCoord = 0, size = 10) {
     this.xCoord = xCoord;
     this.yCoord = yCoord;
     this.size = size;
+    if (typeof exports === 'undefined') { // Execution in browser
+      this.img = Image();
+    }
   }
 }
 
