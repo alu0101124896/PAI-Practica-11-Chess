@@ -27,5 +27,10 @@ describe('Board Class', () => {
       expectOnBoardTest(MY_BOARD).to.have.property('xCoord');
       expectOnBoardTest(MY_BOARD.xCoord).to.be.a('number');
     });
+
+    it('Board has a yCoord', () => {
+      expectOnBoardTest(MY_BOARD).to.have.property('yCoord');
+      expectOnBoardTest(MY_BOARD.yCoord).to.be.a('number');
+    });
   });
 });
