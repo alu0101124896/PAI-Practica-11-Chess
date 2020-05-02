@@ -46,8 +46,16 @@ describe('Piece Class', () => {
       expectOnPieceTest(MY_PIECE.yCoord).to.be.equal(0);
     });
 
-    it('Default size is 0', () => {
+    it('Default size is 10', () => {
       expectOnPieceTest(MY_PIECE.size).to.be.equal(10);
+    });
+  });
+
+  describe('Non default property values', () => {
+    const MY_PIECE = new PieceOnPieceTest(5, 10, 15);
+
+    it('Modifies default xCoord correctly', () => {
+      expectOnPieceTest(MY_PIECE.xCoord).to.be.equal(5);
     });
   });
 });
