@@ -50,4 +50,12 @@ describe('Board Class', () => {
       expectOnBoardTest(MY_BOARD.size).to.be.equal(10);
     });
   });
+
+  describe('Non default property values', () => {
+    const MY_BOARD = new BoardOnBoardTest(5, 10, 15);
+
+    it('Modifies default xCoord correctly', () => {
+      expectOnBoardTest(MY_BOARD.xCoord).to.be.equal(5);
+    });
+  });
 });
