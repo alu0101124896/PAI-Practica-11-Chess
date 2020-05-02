@@ -45,5 +45,9 @@ describe('Board Class', () => {
     it('Default yCoord is 0', () => {
       expectOnBoardTest(MY_BOARD.yCoord).to.be.equal(0);
     });
+
+    it('Default size is 0', () => {
+      expectOnBoardTest(MY_BOARD.size).to.be.equal(10);
+    });
   });
 });
