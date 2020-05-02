@@ -21,7 +21,8 @@ class Piece {
    *
    * @memberof Piece
    */
-  constructor() {
+  constructor(xCoord = 0) {
+    this.xCoord = xCoord;
   }
 }
 
