@@ -45,5 +45,9 @@ describe('Piece Class', () => {
     it('Default yCoord is 0', () => {
       expectOnPieceTest(MY_PIECE.yCoord).to.be.equal(0);
     });
+
+    it('Default size is 0', () => {
+      expectOnPieceTest(MY_PIECE.size).to.be.equal(10);
+    });
   });
 });
