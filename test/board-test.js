@@ -57,5 +57,9 @@ describe('Board Class', () => {
     it('Modifies default xCoord correctly', () => {
       expectOnBoardTest(MY_BOARD.xCoord).to.be.equal(5);
     });
+
+    it('Modifies default yCoord correctly', () => {
+      expectOnBoardTest(MY_BOARD.yCoord).to.be.equal(10);
+    });
   });
 });
