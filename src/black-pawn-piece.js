@@ -10,9 +10,12 @@
 "use strict";
 
 let PieceOnBlackPawnPiece;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') { // Execution in node
   PieceOnBlackPawnPiece = require('./piece.js').Piece;
-} else { // Execution in browser
+}
+/* istanbul ignore next */
+ else { // Execution in browser
   PieceOnBlackPawnPiece = Piece;
 }
 
@@ -28,8 +31,9 @@ class BlackPawnPiece extends PieceOnBlackPawnPiece {
    *
    * @memberof BlackPawnPiece
    */
-  constructor(xCoord = 0, yCoord = 0, size = 10) {
-    super(xCoord, yCoord, size);
+  constructor(rank = 0, file = 0, size = 10) {
+    super(rank, file, size);
+    /* istanbul ignore next */
     if (typeof exports === 'undefined') { // Execution in browser
       this.img.src = '../img/black-pawn-piece.svg'
     }

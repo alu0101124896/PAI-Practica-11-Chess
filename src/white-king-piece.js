@@ -10,9 +10,12 @@
 "use strict";
 
 let PieceOnWhiteKingPiece;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') { // Execution in node
   PieceOnWhiteKingPiece = require('./piece.js').Piece;
-} else { // Execution in browser
+}
+/* istanbul ignore next */
+ else { // Execution in browser
   PieceOnWhiteKingPiece = Piece;
 }
 
@@ -28,8 +31,9 @@ class WhiteKingPiece extends PieceOnWhiteKingPiece {
    *
    * @memberof WhiteKingPiece
    */
-  constructor(xCoord = 0, yCoord = 0, size = 10) {
-    super(xCoord, yCoord, size);
+  constructor(rank = 0, file = 0, size = 10) {
+    super(rank, file, size);
+    /* istanbul ignore next */
     if (typeof exports === 'undefined') { // Execution in browser
       this.img.src = '../img/white-king-piece.svg'
     }

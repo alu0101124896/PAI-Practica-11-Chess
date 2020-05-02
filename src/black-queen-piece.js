@@ -10,9 +10,12 @@
 "use strict";
 
 let PieceOnBlackQueenPiece;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') { // Execution in node
   PieceOnBlackQueenPiece = require('./piece.js').Piece;
-} else { // Execution in browser
+}
+/* istanbul ignore next */
+ else { // Execution in browser
   PieceOnBlackQueenPiece = Piece;
 }
 
@@ -28,8 +31,9 @@ class BlackQueenPiece extends PieceOnBlackQueenPiece {
    *
    * @memberof BlackQueenPiece
    */
-  constructor(xCoord = 0, yCoord = 0, size = 10) {
-    super(xCoord, yCoord, size);
+  constructor(rank = 0, file = 0, size = 10) {
+    super(rank, file, size);
+    /* istanbul ignore next */
     if (typeof exports === 'undefined') { // Execution in browser
       this.img.src = '../img/black-queen-piece.svg'
     }

@@ -9,6 +9,16 @@
 
 "use strict";
 
+let PieceOnBoard;
+/* istanbul ignore next */
+if (typeof require !== 'undefined') { // Execution in node
+  PieceOnBoard = require('./piece.js').Piece;
+}
+/* istanbul ignore next */
+ else { // Execution in browser
+  PieceOnBoard = Piece;
+}
+
 /**
  * @description Class representing an board
  *

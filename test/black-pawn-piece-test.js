@@ -24,14 +24,14 @@ describe('Black Pawn Piece Class', () => {
   describe('Default inherited properties', () => {
     const MY_BLACK_PAWN_PIECE = new BlackPawnPieceOnBlackPawnPieceTest();
 
-    it('Black Pawn Piece has a xCoord', () => {
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE).to.have.property('xCoord');
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE.xCoord).to.be.a('number');
+    it('Black Pawn Piece has a rank', () => {
+      expectOnPieceTest(MY_BLACK_PAWN_PIECE).to.have.property('rank');
+      expectOnPieceTest(MY_BLACK_PAWN_PIECE.rank).to.be.a('number');
     });
 
-    it('Black Pawn Piece has a yCoord', () => {
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE).to.have.property('yCoord');
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE.yCoord).to.be.a('number');
+    it('Black Pawn Piece has a file', () => {
+      expectOnPieceTest(MY_BLACK_PAWN_PIECE).to.have.property('file');
+      expectOnPieceTest(MY_BLACK_PAWN_PIECE.file).to.be.a('number');
     });
 
     it('Black Pawn Piece has a size', () => {
@@ -39,12 +39,12 @@ describe('Black Pawn Piece Class', () => {
       expectOnPieceTest(MY_BLACK_PAWN_PIECE.size).to.be.a('number');
     });
 
-    it('Default xCoord is 0', () => {
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE.xCoord).to.be.equal(0);
+    it('Default rank is 0', () => {
+      expectOnPieceTest(MY_BLACK_PAWN_PIECE.rank).to.be.equal(0);
     });
 
-    it('Default yCoord is 0', () => {
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE.yCoord).to.be.equal(0);
+    it('Default file is 0', () => {
+      expectOnPieceTest(MY_BLACK_PAWN_PIECE.file).to.be.equal(0);
     });
 
     it('Default size is 10', () => {
@@ -55,12 +55,12 @@ describe('Black Pawn Piece Class', () => {
   describe('Non default property values', () => {
     const MY_BLACK_PAWN_PIECE = new BlackPawnPieceOnBlackPawnPieceTest(5, 10, 15);
 
-    it('Modifies default xCoord correctly', () => {
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE.xCoord).to.be.equal(5);
+    it('Modifies default rank correctly', () => {
+      expectOnPieceTest(MY_BLACK_PAWN_PIECE.rank).to.be.equal(5);
     });
 
-    it('Modifies default yCoord correctly', () => {
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE.yCoord).to.be.equal(10);
+    it('Modifies default file correctly', () => {
+      expectOnPieceTest(MY_BLACK_PAWN_PIECE.file).to.be.equal(10);
     });
 
     it('Modifies default size correctly', () => {

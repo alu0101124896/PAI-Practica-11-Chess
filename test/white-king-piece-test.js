@@ -23,14 +23,14 @@ describe('White King Piece Class', () => {
   describe('Default inherited properties', () => {
     const MY_WHITE_KING_PIECE = new WhiteKingPieceOnWhiteKingPieceTest();
 
-    it('White King Piece has a xCoord', () => {
-      expectOnPieceTest(MY_WHITE_KING_PIECE).to.have.property('xCoord');
-      expectOnPieceTest(MY_WHITE_KING_PIECE.xCoord).to.be.a('number');
+    it('White King Piece has a rank', () => {
+      expectOnPieceTest(MY_WHITE_KING_PIECE).to.have.property('rank');
+      expectOnPieceTest(MY_WHITE_KING_PIECE.rank).to.be.a('number');
     });
 
-    it('White King Piece has a yCoord', () => {
-      expectOnPieceTest(MY_WHITE_KING_PIECE).to.have.property('yCoord');
-      expectOnPieceTest(MY_WHITE_KING_PIECE.yCoord).to.be.a('number');
+    it('White King Piece has a file', () => {
+      expectOnPieceTest(MY_WHITE_KING_PIECE).to.have.property('file');
+      expectOnPieceTest(MY_WHITE_KING_PIECE.file).to.be.a('number');
     });
 
     it('White King Piece has a size', () => {
@@ -38,12 +38,12 @@ describe('White King Piece Class', () => {
       expectOnPieceTest(MY_WHITE_KING_PIECE.size).to.be.a('number');
     });
 
-    it('Default xCoord is 0', () => {
-      expectOnPieceTest(MY_WHITE_KING_PIECE.xCoord).to.be.equal(0);
+    it('Default rank is 0', () => {
+      expectOnPieceTest(MY_WHITE_KING_PIECE.rank).to.be.equal(0);
     });
 
-    it('Default yCoord is 0', () => {
-      expectOnPieceTest(MY_WHITE_KING_PIECE.yCoord).to.be.equal(0);
+    it('Default file is 0', () => {
+      expectOnPieceTest(MY_WHITE_KING_PIECE.file).to.be.equal(0);
     });
 
     it('Default size is 10', () => {
@@ -54,12 +54,12 @@ describe('White King Piece Class', () => {
   describe('Non default property values', () => {
     const MY_WHITE_KING_PIECE = new WhiteKingPieceOnWhiteKingPieceTest(5, 10, 15);
 
-    it('Modifies default xCoord correctly', () => {
-      expectOnPieceTest(MY_WHITE_KING_PIECE.xCoord).to.be.equal(5);
+    it('Modifies default rank correctly', () => {
+      expectOnPieceTest(MY_WHITE_KING_PIECE.rank).to.be.equal(5);
     });
 
-    it('Modifies default yCoord correctly', () => {
-      expectOnPieceTest(MY_WHITE_KING_PIECE.yCoord).to.be.equal(10);
+    it('Modifies default file correctly', () => {
+      expectOnPieceTest(MY_WHITE_KING_PIECE.file).to.be.equal(10);
     });
 
     it('Modifies default size correctly', () => {

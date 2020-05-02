@@ -24,14 +24,14 @@ describe('Black Bishop Piece Class', () => {
   describe('Default inherited properties', () => {
     const MY_BLACK_BISHOP_PIECE = new BlackBishopPieceOnBlackBishopPieceTest();
 
-    it('Black Bishop Piece has a xCoord', () => {
-      expectOnPieceTest(MY_BLACK_BISHOP_PIECE).to.have.property('xCoord');
-      expectOnPieceTest(MY_BLACK_BISHOP_PIECE.xCoord).to.be.a('number');
+    it('Black Bishop Piece has a rank', () => {
+      expectOnPieceTest(MY_BLACK_BISHOP_PIECE).to.have.property('rank');
+      expectOnPieceTest(MY_BLACK_BISHOP_PIECE.rank).to.be.a('number');
     });
 
-    it('Black Bishop Piece has a yCoord', () => {
-      expectOnPieceTest(MY_BLACK_BISHOP_PIECE).to.have.property('yCoord');
-      expectOnPieceTest(MY_BLACK_BISHOP_PIECE.yCoord).to.be.a('number');
+    it('Black Bishop Piece has a file', () => {
+      expectOnPieceTest(MY_BLACK_BISHOP_PIECE).to.have.property('file');
+      expectOnPieceTest(MY_BLACK_BISHOP_PIECE.file).to.be.a('number');
     });
 
     it('Black Bishop Piece has a size', () => {
@@ -39,12 +39,12 @@ describe('Black Bishop Piece Class', () => {
       expectOnPieceTest(MY_BLACK_BISHOP_PIECE.size).to.be.a('number');
     });
 
-    it('Default xCoord is 0', () => {
-      expectOnPieceTest(MY_BLACK_BISHOP_PIECE.xCoord).to.be.equal(0);
+    it('Default rank is 0', () => {
+      expectOnPieceTest(MY_BLACK_BISHOP_PIECE.rank).to.be.equal(0);
     });
 
-    it('Default yCoord is 0', () => {
-      expectOnPieceTest(MY_BLACK_BISHOP_PIECE.yCoord).to.be.equal(0);
+    it('Default file is 0', () => {
+      expectOnPieceTest(MY_BLACK_BISHOP_PIECE.file).to.be.equal(0);
     });
 
     it('Default size is 10', () => {
@@ -55,12 +55,12 @@ describe('Black Bishop Piece Class', () => {
   describe('Non default property values', () => {
     const MY_BLACK_BISHOP_PIECE = new BlackBishopPieceOnBlackBishopPieceTest(5, 10, 15);
 
-    it('Modifies default xCoord correctly', () => {
-      expectOnPieceTest(MY_BLACK_BISHOP_PIECE.xCoord).to.be.equal(5);
+    it('Modifies default rank correctly', () => {
+      expectOnPieceTest(MY_BLACK_BISHOP_PIECE.rank).to.be.equal(5);
     });
 
-    it('Modifies default yCoord correctly', () => {
-      expectOnPieceTest(MY_BLACK_BISHOP_PIECE.yCoord).to.be.equal(10);
+    it('Modifies default file correctly', () => {
+      expectOnPieceTest(MY_BLACK_BISHOP_PIECE.file).to.be.equal(10);
     });
 
     it('Modifies default size correctly', () => {

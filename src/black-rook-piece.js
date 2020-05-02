@@ -10,9 +10,12 @@
 "use strict";
 
 let PieceOnBlackRookPiece;
+/* istanbul ignore next */
 if (typeof require !== 'undefined') { // Execution in node
   PieceOnBlackRookPiece = require('./piece.js').Piece;
-} else { // Execution in browser
+}
+/* istanbul ignore next */
+ else { // Execution in browser
   PieceOnBlackRookPiece = Piece;
 }
 
@@ -28,8 +31,9 @@ class BlackRookPiece extends PieceOnBlackRookPiece {
    *
    * @memberof BlackRookPiece
    */
-  constructor(xCoord = 0, yCoord = 0, size = 10) {
-    super(xCoord, yCoord, size);
+  constructor(rank = 0, file = 0, size = 10) {
+    super(rank, file, size);
+    /* istanbul ignore next */
     if (typeof exports === 'undefined') { // Execution in browser
       this.img.src = '../img/black-rook-piece.svg'
     }
