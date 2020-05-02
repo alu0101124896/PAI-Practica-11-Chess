@@ -4,14 +4,14 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program implements a white king piece class for the smiley face.
+ * @description This program implements a white king piece class for the chess.
  */
 
 "use strict";
 
 let PieceOnWhiteKingPiece;
 if (typeof require !== 'undefined') { // Execution in node
-  PieceOnWhiteKingPiece = require('../src/piece.js').Piece;
+  PieceOnWhiteKingPiece = require('./piece.js').Piece;
 } else { // Execution in browser
   PieceOnWhiteKingPiece = Piece;
 }

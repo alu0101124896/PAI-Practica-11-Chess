@@ -51,19 +51,19 @@ describe('White King Piece Class', () => {
     });
   });
 
-  // describe('Non default property values', () => {
-  //   const MY_WHITE_KING_PIECE = new WhiteKingPieceOnWhiteKingPieceTest(5, 10, 15);
+  describe('Non default property values', () => {
+    const MY_WHITE_KING_PIECE = new WhiteKingPieceOnWhiteKingPieceTest(5, 10, 15);
 
-  //   it('Modifies default xCoord correctly', () => {
-  //     expectOnPieceTest(MY_WHITE_KING_PIECE.xCoord).to.be.equal(5);
-  //   });
+    it('Modifies default xCoord correctly', () => {
+      expectOnPieceTest(MY_WHITE_KING_PIECE.xCoord).to.be.equal(5);
+    });
 
-  //   it('Modifies default yCoord correctly', () => {
-  //     expectOnPieceTest(MY_WHITE_KING_PIECE.yCoord).to.be.equal(10);
-  //   });
+    it('Modifies default yCoord correctly', () => {
+      expectOnPieceTest(MY_WHITE_KING_PIECE.yCoord).to.be.equal(10);
+    });
 
-  //   it('Modifies default size correctly', () => {
-  //     expectOnPieceTest(MY_WHITE_KING_PIECE.size).to.be.equal(15);
-  //   });
-  // });
+    it('Modifies default size correctly', () => {
+      expectOnPieceTest(MY_WHITE_KING_PIECE.size).to.be.equal(15);
+    });
+  });
 });
