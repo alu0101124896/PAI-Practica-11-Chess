@@ -38,6 +38,14 @@ class Board {
     this.xCoord = xCoord;
     this.yCoord = yCoord;
     this.size = size;
+    this.matrix = [];
+    for (let ranksIterator = 0; ranksIterator < NUM_OF_RANKS; ranksIterator++) {
+      let tempRank = [];
+      for (let filesIterator = 0; filesIterator < NUM_OF_FILES; filesIterator++) {
+        tempRank.push(0);
+      }
+      this.matrix.push(tempRank);
+    }
   }
 }
 
