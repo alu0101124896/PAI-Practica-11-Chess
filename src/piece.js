@@ -21,8 +21,9 @@ class Piece {
    *
    * @memberof Piece
    */
-  constructor(xCoord = 0) {
+  constructor(xCoord = 0, yCoord = 0) {
     this.xCoord = xCoord;
+    this.yCoord = yCoord;
   }
 }
 
