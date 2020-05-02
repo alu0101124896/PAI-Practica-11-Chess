@@ -57,6 +57,14 @@ describe('Board Class', () => {
     it('Default size is 10', () => {
       expectOnBoardTest(MY_BOARD.size).to.be.equal(10);
     });
+
+    it('Default matrix is full of 0', () => {
+      MY_BOARD.matrix.forEach(rank => {
+        rank.forEach(file => {
+          expectOnBoardTest(file).to.be.equal(0);
+        });
+      });
+    });
   });
 
   describe('Non default property values', () => {
