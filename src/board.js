@@ -35,6 +35,7 @@ class Board {
     this.xCoord = xCoord;
     this.yCoord = yCoord;
     this.size = size;
+
   }
 }
 
