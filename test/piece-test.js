@@ -23,5 +23,9 @@ describe('Piece Class', () => {
   describe('Default properties', () => {
     const MY_PIECE = new PieceOnPieceTest();
 
+    it('Piece has a xCoord', () => {
+      expectOnPieceTest(MY_PIECE).to.have.property('xCoord');
+      expectOnPieceTest(MY_PIECE.xCoord).to.be.a('number');
+    });
   });
 });
