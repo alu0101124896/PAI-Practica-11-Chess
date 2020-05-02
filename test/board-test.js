@@ -38,6 +38,14 @@ describe('Board Class', () => {
       expectOnBoardTest(MY_BOARD.size).to.be.a('number');
     });
 
+    it('Board has a matrix', () => {
+      expectOnBoardTest(MY_BOARD).to.have.property('matrix');
+      expectOnBoardTest(MY_BOARD.matrix).to.be.an('array');
+      MY_BOARD.matrix.forEach(rank => {
+        expectOnBoardTest(rank).to.be.an('array');
+      });
+    });
+
     it('Default xCoord is 0', () => {
       expectOnBoardTest(MY_BOARD.xCoord).to.be.equal(0);
     });
@@ -46,7 +54,7 @@ describe('Board Class', () => {
       expectOnBoardTest(MY_BOARD.yCoord).to.be.equal(0);
     });
 
-    it('Default size is 0', () => {
+    it('Default size is 10', () => {
       expectOnBoardTest(MY_BOARD.size).to.be.equal(10);
     });
   });

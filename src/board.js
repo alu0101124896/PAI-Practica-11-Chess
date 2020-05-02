@@ -15,9 +15,12 @@ if (typeof require !== 'undefined') { // Execution in node
   PieceOnBoard = require('./piece.js').Piece;
 }
 /* istanbul ignore next */
- else { // Execution in browser
+else { // Execution in browser
   PieceOnBoard = Piece;
 }
+
+const NUM_OF_RANKS = 8;
+const NUM_OF_FILES = 8;
 
 /**
  * @description Class representing an board
@@ -35,7 +38,6 @@ class Board {
     this.xCoord = xCoord;
     this.yCoord = yCoord;
     this.size = size;
-
   }
 }
 
