@@ -40,6 +40,12 @@ class Chess {
     this.board = new BoardOnChess();
   }
 
+  /**
+   * @description Function that puts all pieces on the starting position of a
+   *  chess match and draws it on the canvas
+   *
+   * @memberof Chess
+   */
   chessMatch() {
     this.board.piecesOnStartingPosition();
     this.board.draw(CONTEXT, CANVAS);

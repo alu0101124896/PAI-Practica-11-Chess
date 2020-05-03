@@ -54,8 +54,11 @@ else { // Execution in browser
 
 const NUM_OF_RANKS = 8;
 const NUM_OF_FILES = 8;
-const LIGHT_TILE = '#ffce9e';
-const DARK_TILE = '#d18b47';
+const LIGHT_TILE = 'peachPuff';
+const DARK_TILE = 'lightSalmon';
+// const LIGHT_TILE = 'fuchsia';
+// const DARK_TILE = 'forestGreen';
+const BOLD_TEN_PX_ARIAL = "bold 15px Arial";
 
 /**
  * @description Class representing an board
@@ -89,16 +92,20 @@ class Board {
   piecesOnStartingPosition() {
     this.matrix[4][0] = new WhiteKingPieceOnBoard(4, 0);
     this.matrix[4][7] = new BlackKingPieceOnBoard(4, 7);
+
     this.matrix[3][0] = new WhiteQueenPieceOnBoard(3, 0);
     this.matrix[3][7] = new BlackQueenPieceOnBoard(3, 7);
+
     this.matrix[2][0] = new WhiteBishopPieceOnBoard(2, 0);
     this.matrix[5][0] = new WhiteBishopPieceOnBoard(5, 0);
     this.matrix[2][7] = new BlackBishopPieceOnBoard(2, 7);
     this.matrix[5][7] = new BlackBishopPieceOnBoard(5, 7);
+
     this.matrix[1][0] = new WhiteKnightPieceOnBoard(1, 0);
     this.matrix[6][0] = new WhiteKnightPieceOnBoard(6, 0);
     this.matrix[1][7] = new BlackKnightPieceOnBoard(1, 7);
     this.matrix[6][7] = new BlackKnightPieceOnBoard(6, 7);
+
     this.matrix[0][0] = new WhiteRookPieceOnBoard(0, 0);
     this.matrix[7][0] = new WhiteRookPieceOnBoard(7, 0);
     this.matrix[0][7] = new BlackRookPieceOnBoard(0, 7);
@@ -131,6 +138,51 @@ class Board {
           -CANVAS.height / 8);
         if (this.matrix[filesIterator][ranksIterator] !== 0) {
           this.matrix[filesIterator][ranksIterator].draw(CONTEXT, CANVAS);
+        }
+        if (((filesIterator + ranksIterator) % 2) === 0) {
+          CONTEXT.fillStyle = LIGHT_TILE;
+        } else {
+          CONTEXT.fillStyle = DARK_TILE;
+        }
+        if (ranksIterator === 0) {
+          let file = '';
+          switch (filesIterator) {
+            case 0:
+              file += 'a';
+              break;
+            case 1:
+              file += 'b';
+              break;
+            case 2:
+              file += 'c';
+              break;
+            case 3:
+              file += 'd';
+              break;
+            case 4:
+              file += 'e';
+              break;
+            case 5:
+              file += 'f';
+              break;
+            case 6:
+              file += 'g';
+              break;
+            case 7:
+              file += 'h';
+              break;
+
+            default:
+              console.error('Error: Unknown file tile');
+              break;
+          }
+          CONTEXT.font = BOLD_TEN_PX_ARIAL;
+          CONTEXT.fillText(file, filesIterator * (CANVAS.width / 8) + 3, -3);
+        }
+        if (filesIterator === 7) {
+          CONTEXT.font = BOLD_TEN_PX_ARIAL;
+          CONTEXT.fillText(ranksIterator + 1, CANVAS.width - 12,
+            -(ranksIterator + 1) * (CANVAS.height / 8) + 14);
         }
       }
     }
