@@ -19,17 +19,13 @@ class Piece {
   /**
    * @description Constructor that creates an instance of a piece.
    *
-   * @param {number} [rank=0] - Rank where the piece is on
    * @param {number} [file=0] - File where the piece is on
+   * @param {number} [rank=0] - Rank where the piece is on
    * @memberof Piece
    */
-  constructor(rank = 0, file = 0) {
-    this.rank = rank;
+  constructor(file = 0, rank = 0) {
     this.file = file;
-    /* istanbul ignore next */
-    if (typeof exports === 'undefined') { // Execution in browser
-      this.img = Image();
-    }
+    this.rank = rank;
   }
 }
 

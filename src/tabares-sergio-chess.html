@@ -25,11 +25,39 @@
     </div>
     <div id="flex-canvas">
       <canvas id="canvas" style="border:3px solid black;"></canvas>
-      <!-- <script src="../src/point.js"></script> -->
-      <!-- <script src="../src/segment.js"></script> -->
-      <!-- <script src="../src/grid.js"></script> -->
+      <div style="display:none;">
+        <img id="white-king-piece" src="../img/white-king-piece.svg">
+        <img id="white-queen-piece" src="../img/white-queen-piece.svg">
+        <img id="white-bishop-piece" src="../img/white-bishop-piece.svg">
+        <img id="white-knight-piece" src="../img/white-knight-piece.svg">
+        <img id="white-rook-piece" src="../img/white-rook-piece.svg">
+        <img id="white-pawn-piece" src="../img/white-pawn-piece.svg">
+        <img id="black-king-piece" src="../img/black-king-piece.svg">
+        <img id="black-queen-piece" src="../img/black-queen-piece.svg">
+        <img id="black-bishop-piece" src="../img/black-bishop-piece.svg">
+        <img id="black-knight-piece" src="../img/black-knight-piece.svg">
+        <img id="black-rook-piece" src="../img/black-rook-piece.svg">
+        <img id="black-pawn-piece" src="../img/black-pawn-piece.svg">
+      </div>
+      <script src="../src/piece.js"></script>
+      <script src="../src/white-king-piece.js"></script>
+      <script src="../src/white-queen-piece.js"></script>
+      <script src="../src/white-bishop-piece.js"></script>
+      <script src="../src/white-knight-piece.js"></script>
+      <script src="../src/white-rook-piece.js"></script>
+      <script src="../src/white-pawn-piece.js"></script>
+      <script src="../src/black-king-piece.js"></script>
+      <script src="../src/black-queen-piece.js"></script>
+      <script src="../src/black-bishop-piece.js"></script>
+      <script src="../src/black-knight-piece.js"></script>
+      <script src="../src/black-rook-piece.js"></script>
+      <script src="../src/black-pawn-piece.js"></script>
+      <script src="../src/board.js"></script>
       <script src="../src/chess.js"></script>
-      <script> mainBrowser(); </script>
+      <script>
+        let test = new Chess();
+        test.chessMatch();
+      </script>
     </div>
     <div id="flex-info">
     </div>

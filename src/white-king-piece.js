@@ -15,9 +15,11 @@ if (typeof require !== 'undefined') { // Execution in node
   PieceOnWhiteKingPiece = require('./piece.js').Piece;
 }
 /* istanbul ignore next */
- else { // Execution in browser
+else { // Execution in browser
   PieceOnWhiteKingPiece = Piece;
 }
+
+const WHITE_KING_PIECE = document.getElementById('white-king-piece');
 
 /**
  * @description Class representing an white king piece
@@ -30,16 +32,25 @@ class WhiteKingPiece extends PieceOnWhiteKingPiece {
    *
    * @description Constructor that creates an instance of a white king piece.
    *
-   * @param {number} [rank=0] - Rank where the piece is on
    * @param {number} [file=0] - File where the piece is on
+   * @param {number} [rank=0] - Rank where the piece is on
    * @memberof WhiteKingPiece
    */
-  constructor(rank = 0, file = 0) {
-    super(rank, file);
+  constructor(file = 0, rank = 0) {
+    super(file, rank);
     /* istanbul ignore next */
     if (typeof exports === 'undefined') { // Execution in browser
-      this.img.src = '../img/white-king-piece.svg'
+      this.img = new Image();
     }
+  }
+
+  drawPiece(CONTEXT, CANVAS) {
+    CONTEXT.drawImage(WHITE_KING_PIECE, this.file * (CANVAS.width / 8),
+      -this.rank * (CANVAS.width / 8), CANVAS.width / 8, -CANVAS.height / 8);
+  }
+
+  draw(CONTEXT, CANVAS) {
+    WHITE_KING_PIECE.onload = this.drawPiece(CONTEXT, CANVAS);
   }
 }
 

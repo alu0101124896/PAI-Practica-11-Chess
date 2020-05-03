@@ -19,6 +19,8 @@ if (typeof require !== 'undefined') { // Execution in node
   PieceOnBlackQueenPiece = Piece;
 }
 
+const BLACK_QUEEN_PIECE = document.getElementById('black-queen-piece');
+
 /**
  * @description Class representing an black queen piece
  *
@@ -29,16 +31,25 @@ class BlackQueenPiece extends PieceOnBlackQueenPiece {
   /**
    * @description Constructor that creates an instance of a black queen piece.
    *
-   * @param {number} [rank=0] - Rank where the piece is on
    * @param {number} [file=0] - File where the piece is on
+   * @param {number} [rank=0] - Rank where the piece is on
    * @memberof BlackQueenPiece
    */
-  constructor(rank = 0, file = 0) {
-    super(rank, file);
+  constructor(file = 0, rank = 0) {
+    super(file, rank);
     /* istanbul ignore next */
     if (typeof exports === 'undefined') { // Execution in browser
-      this.img.src = '../img/black-queen-piece.svg'
+      this.img = new Image();
     }
+  }
+
+  drawPiece(CONTEXT, CANVAS) {
+    CONTEXT.drawImage(BLACK_QUEEN_PIECE, this.file * (CANVAS.width / 8),
+      -this.rank * (CANVAS.width / 8), CANVAS.width / 8, -CANVAS.height / 8);
+  }
+
+  draw(CONTEXT, CANVAS) {
+    BLACK_QUEEN_PIECE.onload = this.drawPiece(CONTEXT, CANVAS);
   }
 }
 

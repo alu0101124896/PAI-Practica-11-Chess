@@ -15,9 +15,11 @@ if (typeof require !== 'undefined') { // Execution in node
   PieceOnBlackPawnPiece = require('./piece.js').Piece;
 }
 /* istanbul ignore next */
- else { // Execution in browser
+else { // Execution in browser
   PieceOnBlackPawnPiece = Piece;
 }
+
+const BLACK_PAWN_PIECE = document.getElementById('black-pawn-piece');
 
 /**
  * @description Class representing an black pawn piece
@@ -29,16 +31,25 @@ class BlackPawnPiece extends PieceOnBlackPawnPiece {
   /**
    * @description Constructor that creates an instance of a black pawn piece.
    *
-   * @param {number} [rank=0] - Rank where the piece is on
    * @param {number} [file=0] - File where the piece is on
+   * @param {number} [rank=0] - Rank where the piece is on
    * @memberof BlackPawnPiece
    */
-  constructor(rank = 0, file = 0) {
-    super(rank, file);
+  constructor(file = 0, rank = 0) {
+    super(file, rank);
     /* istanbul ignore next */
     if (typeof exports === 'undefined') { // Execution in browser
-      this.img.src = '../img/black-pawn-piece.svg'
+      this.img = new Image();
     }
+  }
+
+  drawPiece(CONTEXT, CANVAS) {
+    CONTEXT.drawImage(BLACK_PAWN_PIECE, this.file * (CANVAS.width / 8),
+      -this.rank * (CANVAS.width / 8), CANVAS.width / 8, -CANVAS.height / 8);
+  }
+
+  draw(CONTEXT, CANVAS) {
+    BLACK_PAWN_PIECE.onload = this.drawPiece(CONTEXT, CANVAS);
   }
 }
 

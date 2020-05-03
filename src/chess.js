@@ -9,6 +9,21 @@
 
 "use strict";
 
+let BoardOnChess;
+/* istanbul ignore next */
+if (typeof require !== 'undefined') { // Execution in node
+  BoardOnChess = require('./board.js').Board;
+}
+/* istanbul ignore next */
+else { // Execution in browser
+  BoardOnChess = Board;
+}
+
+const CANVAS = document.getElementById("canvas");
+const CONTEXT = CANVAS.getContext("2d");
+CANVAS.width = window.innerHeight - 175;
+CANVAS.height = window.innerHeight - 175;
+
 /**
  * @description Class representing an chess
  *
@@ -22,6 +37,12 @@ class Chess {
    * @memberof Chess
    */
   constructor() {
+    this.board = new BoardOnChess();
+  }
+
+  chessMatch() {
+    this.board.piecesOnStartingPosition();
+    this.board.draw(CONTEXT, CANVAS);
   }
 }
 
