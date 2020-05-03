@@ -124,7 +124,7 @@ class Board {
    * @param {*} CANVAS - Canvas
    * @memberof Board
    */
-  async draw(CONTEXT, CANVAS) {
+  draw(CONTEXT, CANVAS) {
     CONTEXT.translate(0, CANVAS.height);
     for (let filesIterator = 0; filesIterator < NUM_OF_FILES; filesIterator++) {
       for (let ranksIterator = 0; ranksIterator < NUM_OF_RANKS; ranksIterator++) {
@@ -137,7 +137,7 @@ class Board {
           -ranksIterator * (CANVAS.width / 8), CANVAS.width / 8,
           -CANVAS.height / 8);
         if (this.matrix[filesIterator][ranksIterator] !== 0) {
-          await this.matrix[filesIterator][ranksIterator].draw(CONTEXT, CANVAS);
+          this.matrix[filesIterator][ranksIterator].draw(CONTEXT, CANVAS);
         }
         if (((filesIterator + ranksIterator) % 2) === 0) {
           CONTEXT.fillStyle = LIGHT_TILE;
