@@ -19,11 +19,6 @@ else { // Execution in browser
   BoardOnChess = Board;
 }
 
-const CANVAS = document.getElementById("canvas");
-const CONTEXT = CANVAS.getContext("2d");
-CANVAS.width = window.innerHeight - 175;
-CANVAS.height = window.innerHeight - 175;
-
 /**
  * @description Class representing an chess
  *
@@ -38,6 +33,16 @@ class Chess {
    */
   constructor() {
     this.board = new BoardOnChess();
+    this.CANVAS = document.getElementById("canvas");
+    this.CONTEXT = this.CANVAS.getContext("2d");
+    if (window.innerWidth < window.innerHeight)
+    {
+      this.CANVAS.width = window.innerWidth - 175;
+      this.CANVAS.height = window.innerWidth - 175;
+    } else {
+      this.CANVAS.width = window.innerHeight - 175;
+      this.CANVAS.height = window.innerHeight - 175;
+    }
   }
 
   /**
@@ -48,7 +53,7 @@ class Chess {
    */
   chessMatch() {
     this.board.piecesOnStartingPosition();
-    this.board.draw(CONTEXT, CANVAS);
+    this.board.draw(this.CONTEXT, this.CANVAS);
   }
 }
 
