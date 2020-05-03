@@ -9,14 +9,47 @@
 
 "use strict";
 
-let PieceOnBoard;
+let WhiteKingPieceOnBoard;
+let WhiteQueenPieceOnBoard;
+let WhiteBishopPieceOnBoard;
+let WhiteKnightPieceOnBoard;
+let WhiteRookPieceOnBoard;
+let WhitePawnPieceOnBoard;
+let BlackKingPieceOnBoard;
+let BlackQueenPieceOnBoard;
+let BlackBishopPieceOnBoard;
+let BlackKnightPieceOnBoard;
+let BlackRookPieceOnBoard;
+let BlackPawnPieceOnBoard;
 /* istanbul ignore next */
 if (typeof require !== 'undefined') { // Execution in node
-  PieceOnBoard = require('./piece.js').Piece;
+  WhiteKingPieceOnBoard = require('./white-king-piece.js').WhiteKingPiece;
+  WhiteQueenPieceOnBoard = require('./white-queen-piece.js').WhiteQueenPiece;
+  WhiteBishopPieceOnBoard = require('./white-bishop-piece.js').WhiteBishopPiece;
+  WhiteKnightPieceOnBoard = require('./white-knight-piece.js').WhiteKnightPiece;
+  WhiteRookPieceOnBoard = require('./white-rook-piece.js').WhiteRookPiece;
+  WhitePawnPieceOnBoard = require('./white-pawn-piece.js').WhitePawnPiece;
+  BlackKingPieceOnBoard = require('./black-king-piece.js').BlackKingPiece;
+  BlackQueenPieceOnBoard = require('./black-queen-piece.js').BlackQueenPiece;
+  BlackBishopPieceOnBoard = require('./black-bishop-piece.js').BlackBishopPiece;
+  BlackKnightPieceOnBoard = require('./black-knight-piece.js').BlackKnightPiece;
+  BlackRookPieceOnBoard = require('./black-rook-piece.js').BlackRookPiece;
+  BlackPawnPieceOnBoard = require('./black-pawn-piece.js').BlackPawnPiece;
 }
 /* istanbul ignore next */
 else { // Execution in browser
-  PieceOnBoard = Piece;
+  WhiteKingPieceOnBoard = WhiteKingPiece;
+  WhiteQueenPieceOnBoard = WhiteQueenPiece;
+  WhiteBishopPieceOnBoard = WhiteBishopPiece;
+  WhiteKnightPieceOnBoard = WhiteKnightPiece;
+  WhiteRookPieceOnBoard = WhiteRookPiece;
+  WhitePawnPieceOnBoard = WhitePawnPiece;
+  BlackKingPieceOnBoard = BlackKingPiece;
+  BlackQueenPieceOnBoard = BlackQueenPiece;
+  BlackBishopPieceOnBoard = BlackBishopPiece;
+  BlackKnightPieceOnBoard = BlackKnightPiece;
+  BlackRookPieceOnBoard = BlackRookPiece;
+  BlackPawnPieceOnBoard = BlackPawnPiece;
 }
 
 const NUM_OF_RANKS = 8;
@@ -34,17 +67,24 @@ class Board {
    *
    * @memberof Board
    */
-  constructor(xCoord = 0, yCoord = 0, size = 10) {
-    this.xCoord = xCoord;
-    this.yCoord = yCoord;
-    this.size = size;
+  constructor() {
     this.matrix = [];
     for (let ranksIterator = 0; ranksIterator < NUM_OF_RANKS; ranksIterator++) {
       let tempRank = [];
-      for (let filesIterator = 0; filesIterator < NUM_OF_FILES; filesIterator++) {
+      for (let filesIterator = 0; filesIterator < NUM_OF_FILES;
+        filesIterator++) {
         tempRank.push(0);
       }
       this.matrix.push(tempRank);
+    }
+  }
+
+  piecesOnStartingPosition() {
+    for (let filesIterator = 0; filesIterator < array.length; filesIterator++) {
+      this.matrix[1][filesIterator] = new WhitePawnPieceOnBoard(1,
+         filesIterator);
+      this.matrix[6][filesIterator] = new BlackPawnPieceOnBoard(6,
+         filesIterator);
     }
   }
 }

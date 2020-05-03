@@ -29,10 +29,12 @@ class WhiteBishopPiece extends PieceOnWhiteBishopPiece {
   /**
    * @description Constructor that creates an instance of a white bishop piece.
    *
+   * @param {number} [rank=0] - Rank where the piece is on
+   * @param {number} [file=0] - File where the piece is on
    * @memberof WhiteBishopPiece
    */
-  constructor(rank = 0, file = 0, size = 10) {
-    super(rank, file, size);
+  constructor(rank = 0, file = 0) {
+    super(rank, file);
     /* istanbul ignore next */
     if (typeof exports === 'undefined') { // Execution in browser
       this.img.src = '../img/white-bishop-piece.svg'

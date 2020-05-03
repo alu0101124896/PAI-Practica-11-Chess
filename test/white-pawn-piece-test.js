@@ -34,11 +34,6 @@ describe('White Pawn Piece Class', () => {
       expectOnPieceTest(MY_WHITE_PAWN_PIECE.file).to.be.a('number');
     });
 
-    it('White Pawn Piece has a size', () => {
-      expectOnPieceTest(MY_WHITE_PAWN_PIECE).to.have.property('size');
-      expectOnPieceTest(MY_WHITE_PAWN_PIECE.size).to.be.a('number');
-    });
-
     it('Default rank is 0', () => {
       expectOnPieceTest(MY_WHITE_PAWN_PIECE.rank).to.be.equal(0);
     });
@@ -46,14 +41,10 @@ describe('White Pawn Piece Class', () => {
     it('Default file is 0', () => {
       expectOnPieceTest(MY_WHITE_PAWN_PIECE.file).to.be.equal(0);
     });
-
-    it('Default size is 10', () => {
-      expectOnPieceTest(MY_WHITE_PAWN_PIECE.size).to.be.equal(10);
-    });
   });
 
   describe('Non default property values', () => {
-    const MY_WHITE_PAWN_PIECE = new WhitePawnPieceOnWhitePawnPieceTest(5, 10, 15);
+    const MY_WHITE_PAWN_PIECE = new WhitePawnPieceOnWhitePawnPieceTest(5, 10);
 
     it('Modifies default rank correctly', () => {
       expectOnPieceTest(MY_WHITE_PAWN_PIECE.rank).to.be.equal(5);
@@ -61,10 +52,6 @@ describe('White Pawn Piece Class', () => {
 
     it('Modifies default file correctly', () => {
       expectOnPieceTest(MY_WHITE_PAWN_PIECE.file).to.be.equal(10);
-    });
-
-    it('Modifies default size correctly', () => {
-      expectOnPieceTest(MY_WHITE_PAWN_PIECE.size).to.be.equal(15);
     });
   });
 });
