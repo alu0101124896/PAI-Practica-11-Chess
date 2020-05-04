@@ -19,7 +19,7 @@ if (typeof require !== 'undefined') { // Execution in node
   PieceOnBlackBishopPiece = Piece;
 }
 
-const BLACK_BISHOP_PIECE = document.getElementById('black-bishop-piece');
+// const BLACK_BISHOP_PIECE = document.getElementById('black-bishop-piece');
 
 /**
  * @description Class representing an black bishop piece

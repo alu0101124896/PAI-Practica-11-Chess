@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: chess.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: chess.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file chess.js
+ * @author Sergio Tabares Hernández &lt;alu0101124896@ull.edu.es>
+ * @since Spring 2020
+ * @summary University of La Laguna
+ * @summary Computer Science - Interactive Aplication Programing
+ * @description This program implements a chess class for the chess.
+ */
+
+"use strict";
+
+let BoardOnChess;
+let QueenOnChess;
+let LineOnChess;
+/* istanbul ignore next */
+if (typeof require !== 'undefined') { // Execution in node
+  BoardOnChess = require('./board.js').Board;
+  QueenOnChess = require('./black-queen-piece.js').BlackQueenPiece;
+  LineOnChess = require('./line.js').Line;
+}
+/* istanbul ignore next */
+else { // Execution in bfileser
+  BoardOnChess = Board;
+  QueenOnChess = BlackQueenPiece;
+  LineOnChess = Line;
+}
+
+const NUM_OF_RANKS_ON_CHESS = 8;
+const NUM_OF_FILES_ON_CHESS = 8;
+
+/**
+ * @description Class representing an chess
+ *
+ * @class Chess
+ */
+class Chess {
+
+  /**
+   * @description Constructor that creates an instance of a chess.
+   *
+   * @memberof Chess
+   */
+  constructor() {
+    this.board = new BoardOnChess();
+    this.CANVAS = document.getElementById("canvas");
+    this.CONTEXT = this.CANVAS.getContext("2d");
+    this.CANVAS.width = window.innerWidth / 2 - 100;
+    this.CANVAS.height = window.innerWidth / 2 - 100;
+    this.CONTEXT.translate(0, this.CANVAS.height);
+    this.board.draw(this.CONTEXT, this.CANVAS);
+    this.eightQueensSolutions = [];
+    this.queens = [];
+    this.lastSolutionDrawn = 0;
+  }
+
+  /**
+   * @description Function that puts all pieces on the starting position of a
+   *  chess match and draws it on the canvas
+   *
+   * @memberof Chess
+   */
+  chessMatch() {
+    this.board.piecesOnStartingPosition();
+    this.board.draw(this.CONTEXT, this.CANVAS);
+  }
+
+  /**
+   * @description Function that checks if the queen is in line with another two
+   *
+   * @param {number} file - Candidate file to input a queen
+   * @param {number} rank - Candidate rank to input a queen
+   * @returns {boolean} Returns true if the queen is not in line
+   * @memberof Chess
+   */
+  checkLine(file, rank) {
+    if (this.queens.length &lt; 2) {
+      return true;
+    }
+    else {
+      for (let firstQueen = 0; firstQueen &lt; this.queens.length - 1;
+        firstQueen++) {
+        for (let secondQueen = firstQueen + 1; secondQueen &lt; this.queens.length;
+          secondQueen++) {
+          let line = new LineOnChess(this.queens[firstQueen],
+            this.queens[secondQueen]);
+          if (line.isPointInLine(file, rank)) {
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+  }
+
+  /**
+   * @description Function that checks if the queen can be placed safely
+   *
+   * @param {number} file - Candidate file to input a queen
+   * @param {number} rank - Candidate rank to input a queen
+   * @returns {boolean} Returns true if the queen can be placed safely
+   * @memberof Chess
+   */
+  isSafe(file, rank) {
+    for (let rankIterator = 0; rankIterator &lt; rank; rankIterator++) {
+      if (this.board.grid[file][rankIterator] !== 0) {
+        return false;
+      }
+    }
+    for (let fileIterator = file, rankIterator = rank;
+      (fileIterator >= 0) &amp;&amp; (rankIterator >= 0);
+      fileIterator--, rankIterator--) {
+      if (this.board.grid[fileIterator][rankIterator] !== 0) {
+        return false;
+      }
+    }
+    for (let fileIterator = file, rankIterator = rank;
+      (rankIterator >= 0) &amp;&amp; (fileIterator &lt; NUM_OF_FILES_ON_CHESS);
+      fileIterator++, rankIterator--) {
+      if (this.board.grid[fileIterator][rankIterator] !== 0) {
+        return false;
+      }
+    }
+    if (document.getElementById("generalized").checked) {
+      return this.checkLine(file, rank);
+    } else {
+      return true;
+    }
+  }
+
+  /**
+   * @description Function that inserts a queen into the board
+   *
+   * @param {number} file - File position of the queen in the board
+   * @param {number} rank - Rank position of the queen in the board
+   * @memberof Chess
+   */
+  insertQueen(file, rank) {
+    this.board.grid[file][rank] = new QueenOnChess(file, rank);
+    this.queens.push(new QueenOnChess(file, rank));
+  }
+
+  /**
+   * @description Function that extracts a queen out of the board
+   *
+   * @param {number} file - File position of the queen in the board
+   * @param {number} rank - Rank position of the queen in the board
+   * @memberof Chess
+   */
+  extractQueen(file, rank) {
+    this.board.grid[file][rank] = 0;
+    this.queens.pop();
+  }
+
+  /**
+   * @description Function that deep copies a board instance
+   *
+   * @param {BoardOnChess} board - Board to be copied
+   * @returns {BoardOnChess} Returns the copy of the board
+   * @memberof Chess
+   */
+  copy(board) {
+    let newBoard = new BoardOnChess();
+    for (let filesIterator = 0; filesIterator &lt; NUM_OF_FILES_ON_CHESS; filesIterator++) {
+      for (let ranksIterator = 0; ranksIterator &lt; NUM_OF_RANKS_ON_CHESS; ranksIterator++) {
+        if (board.grid[filesIterator][ranksIterator] === 0) {
+          newBoard.grid[filesIterator][ranksIterator] = 0;
+        } else {
+          newBoard.grid[filesIterator][ranksIterator] = Object.assign(
+            Object.create(
+              Object.getPrototypeOf(board.grid[filesIterator][ranksIterator])
+            ),
+            board.grid[filesIterator][ranksIterator]
+          );
+        }
+      }
+    }
+    return newBoard;
+  }
+
+  /**
+   * @description Recursive function that walks along the board searching for
+   *  possible solutions
+   *
+   * @param {number} rank - Candidate rank to input a queen
+   * @memberof Chess
+   */
+  placeQueens(rank) {
+    if (rank === NUM_OF_RANKS_ON_CHESS) {
+      this.eightQueensSolutions.push(this.copy(this.board));
+    } else {
+      for (let filesIterator = 0; filesIterator &lt; NUM_OF_FILES_ON_CHESS;
+        filesIterator++) {
+        if (this.isSafe(filesIterator, rank)) {
+          this.insertQueen(filesIterator, rank);
+          this.placeQueens(rank + 1);
+          this.extractQueen(filesIterator, rank);
+        }
+      }
+    }
+  }
+
+  /**
+   * @description Function that prints an eight queens puzzle solution
+   *
+   * @param {number} solutionNumber
+   * @memberof Chess
+   */
+  printSolution(solutionNumber) {
+    this.eightQueensSolutions[solutionNumber].
+      draw(this.CONTEXT, this.CANVAS);
+    this.lastSolutionDrawn++;
+  }
+
+  /**
+   * @description Function that starts the search of the solutions to the eight
+   *  queens puzzle
+   *
+   * @memberof Chess
+   */
+  solvePuzzle() {
+    this.board.reset();
+    this.eightQueensSolutions.splice(this.eightQueensSolutions[0],
+      this.eightQueensSolutions.length);
+    this.lastSolutionDrawn = 0;
+    const initialRank = 0;
+    this.placeQueens(initialRank);
+    if (this.eightQueensSolutions.length > 0) {
+      this.printSolution(0);
+
+    }
+  }
+
+  /**
+   * @description Function that draws the next solution of the puzzle
+   *
+   * @memberof Chess
+   */
+  nextSolution() {
+    if (this.lastSolutionDrawn &lt; this.eightQueensSolutions.length) {
+      this.printSolution(this.lastSolutionDrawn);
+    }
+  }
+}
+
+/* istanbul ignore next */
+if (typeof exports !== 'undefined') { // Execution in node
+  exports.Chess = Chess;
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BlackBishopPiece.html">BlackBishopPiece</a></li><li><a href="BlackBishopPiece.BlackBishopPiece.html">BlackBishopPiece</a></li><li><a href="BlackKingPiece.html">BlackKingPiece</a></li><li><a href="BlackKingPiece.BlackKingPiece.html">BlackKingPiece</a></li><li><a href="BlackKnightPiece.html">BlackKnightPiece</a></li><li><a href="BlackKnightPiece.BlackKnightPiece.html">BlackKnightPiece</a></li><li><a href="BlackPawnPiece.html">BlackPawnPiece</a></li><li><a href="BlackPawnPiece.BlackPawnPiece.html">BlackPawnPiece</a></li><li><a href="BlackQueenPiece.html">BlackQueenPiece</a></li><li><a href="BlackQueenPiece.BlackQueenPiece.html">BlackQueenPiece</a></li><li><a href="BlackRookPiece.html">BlackRookPiece</a></li><li><a href="BlackRookPiece.BlackRookPiece.html">BlackRookPiece</a></li><li><a href="Board.html">Board</a></li><li><a href="Board.Board.html">Board</a></li><li><a href="Chess.html">Chess</a></li><li><a href="Chess.Chess.html">Chess</a></li><li><a href="Line.html">Line</a></li><li><a href="Line.Line.html">Line</a></li><li><a href="Piece.html">Piece</a></li><li><a href="Piece.Piece.html">Piece</a></li><li><a href="WhiteBishopPiece.html">WhiteBishopPiece</a></li><li><a href="WhiteBishopPiece.WhiteBishopPiece.html">WhiteBishopPiece</a></li><li><a href="WhiteKingPiece.html">WhiteKingPiece</a></li><li><a href="WhiteKingPiece.WhiteKingPiece.html">WhiteKingPiece</a></li><li><a href="WhiteKnightPiece.html">WhiteKnightPiece</a></li><li><a href="WhiteKnightPiece.WhiteKnightPiece.html">WhiteKnightPiece</a></li><li><a href="WhitePawnPiece.html">WhitePawnPiece</a></li><li><a href="WhitePawnPiece.WhitePawnPiece.html">WhitePawnPiece</a></li><li><a href="WhiteQueenPiece.html">WhiteQueenPiece</a></li><li><a href="WhiteQueenPiece.WhiteQueenPiece.html">WhiteQueenPiece</a></li><li><a href="WhiteRookPiece.html">WhiteRookPiece</a></li><li><a href="WhiteRookPiece.WhiteRookPiece.html">WhiteRookPiece</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Mon May 04 2020 23:21:05 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

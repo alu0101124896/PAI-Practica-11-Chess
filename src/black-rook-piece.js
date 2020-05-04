@@ -19,7 +19,7 @@ if (typeof require !== 'undefined') { // Execution in node
   PieceOnBlackRookPiece = Piece;
 }
 
-const BLACK_ROOK_PIECE = document.getElementById('black-rook-piece');
+// const BLACK_ROOK_PIECE = document.getElementById('black-rook-piece');
 
 /**
  * @description Class representing an black rook piece

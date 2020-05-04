@@ -19,7 +19,7 @@ else { // Execution in browser
   PieceOnBlackPawnPiece = Piece;
 }
 
-const BLACK_PAWN_PIECE = document.getElementById('black-pawn-piece');
+// const BLACK_PAWN_PIECE = document.getElementById('black-pawn-piece');
 
 /**
  * @description Class representing an black pawn piece
