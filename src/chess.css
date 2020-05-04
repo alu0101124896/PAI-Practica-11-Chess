@@ -13,17 +13,18 @@ html {
 }
 
 body {
-  background-color: #e2f3d6;
+  background: linear-gradient(to bottom, #dbd7d1 0%, #edebe9 10%);
   overflow: auto;
   height: inherit;
+  margin: 0;
 }
 
 h1 {
-  color: #203f0b;
+  color: #4d4d4d;
 }
 
 h2 {
-  color: #2a500f;
+  color: #4d4d4d;
 }
 
 canvas {
@@ -33,11 +34,69 @@ canvas {
 }
 
 a {
-  color: #529b1e;
+  color: #4d4d4d;
+  text-decoration: none;
 }
 
-p {
+#header-flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  margin: auto;
+  padding: 0.5%;
+}
+
+.title-header-flex-item {
+  font-size: 200%;
+  margin: 5px;
+}
+
+.header-flex-item {
+  font-size: 80%;
+  margin: 10px;
+}
+
+.spacer-header-flex-item {
+  flex-grow: 1;
+  font-size: 200%;
+  margin: 5px;
+}
+
+#main-flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.main-flex-canvas {
+  margin: auto;
+  box-shadow: 0px 1px 1px 1px #aaaaaa;
+}
+
+.main-flex-panels {
+  background-color: #ffffff;
+  box-shadow: 0px 1px 1px 1px #aaaaaa;
+  flex-grow: 1;
+  border-radius: 2%;
+  margin: 2%;
+  padding: 2%;
+}
+
+.info {
   display: block;
   padding-left: 25%;
   padding-right: 25%;
+}
+
+footer {
+  background-color: #574634;
+  color: #bebebc;
+  font-size: 150%;
+  padding: 0.5%;
+  margin: 0;
 }

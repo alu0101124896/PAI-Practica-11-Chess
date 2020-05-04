@@ -18,13 +18,42 @@
 </head>
 
 <body>
-  <h1>Chess - Tabares Hernández, Sergio</h1>
-  <p><a href="../www/index.html">Return to index</a> </p>
-  <div id="flex-container">
-    <div id="flex-info">
+  <header id="header-flex-container">
+    <p class="header-flex-item"><a href="../www/index.html">Back to index</a> </p>
+    <h1 class="title-header-flex-item"><a href="">Chess - Sergio Tabares Hernandez</a> </h1>
+    <p class="header-flex-item"><a href="">JUGAR</a> </p>
+    <p class="header-flex-item"><a href="">APRENDER</a> </p>
+    <p class="header-flex-item"><a href="">OBSERVAR</a> </p>
+    <p class="header-flex-item"><a href="">COMUNIDAD</a> </p>
+    <p class="header-flex-item"><a href="">HERRAMIENTAS</a> </p>
+    <p class="spacer-header-flex-item"> </p>
+    <p class="header-flex-item"><a href="">BUSCAR</a> </p>
+    <p class="header-flex-item"><a href="">CONFIGURACIÓN</a> </p>
+    <p class="header-flex-item"><a href="">INICIAR SESIÓN</a> </p>
+  </header>
+
+  <section id="main-flex-container">
+    <div class="main-flex-panels">
+      <div>
+        <label for="generalized">8 reinas generalizado: </label>
+        <input type="checkbox" id="generalized" name="generalized">
+      </div>
+      <br />
+      <div>
+        <button type="button" onclick="chess.generateSolution();">Generar solución</button>
+      </div>
+      <br />
+      <div>
+        <button type="button" onclick="chess.nextSolution();">Siguiente solución</button>
+      </div>
+      <br />
+      <div>
+        <button type="button" onclick="chess.chessMatch();">Partida de ajedrez</button>
+      </div>
     </div>
-    <div id="flex-canvas">
-      <canvas id="canvas" style="border:3px solid black;"></canvas>
+
+    <div class="main-flex-canvas">
+      <canvas id="canvas"></canvas>
       <div style="display:none;">
         <img id="white-king-piece" src="../img/white-king-piece.svg">
         <img id="white-queen-piece" src="../img/white-queen-piece.svg">
@@ -55,26 +84,59 @@
       <script src="../src/board.js"></script>
       <script src="../src/chess.js"></script>
       <script>
-        let test = new Chess();
-        test.chessMatch();
+        let chess = new Chess();
       </script>
     </div>
-    <div id="flex-info">
-    </div>
-  </div>
 
-  <h2>⇓ ⇓ ⇓ Info ⇓ ⇓ ⇓</h2>
-  <div>
-    <p>Chess is a two-player strategy board game played on a checkered board
-      with 64 squares arranged in an 8×8 grid.</p>
-    <p> Played by millions of people
-      worldwide, chess is believed to be derived from the Indian game chaturanga
-      sometime before the 7th century.</p>
-    <p>Play involves no hidden information. Each player begins with 16 pieces:
-      one king, one queen, two rooks, two knights, two bishops, and eight pawns.</p>
-    <p>More info about Chess
-      <a href="https://en.wikipedia.org/wiki/Chess">here</a> </p>
-  </div>
+    <div class="main-flex-panels">
+      <p> Soluciones 8 reinas: </p>
+      <p id="firstQueen"></p>
+      <p id="secondQueen"></p>
+      <p id="thirdQueen"></p>
+      <p id="fourthQueen"></p>
+      <p id="fifthQueen"></p>
+      <p id="sixthQueen"></p>
+      <p id="seventhQueen"></p>
+      <p id="eighthQueen"></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>⇓ ⇓ ⇓ Info ⇓ ⇓ ⇓</h2>
+    <div>
+      <p class="info">
+        Chess is a two-player strategy board game played on a checkered board
+        with 64 squares arranged in an 8×8 grid. Played by millions of people
+        worldwide, chess is believed to be derived from the Indian game
+        chaturanga sometime before the 7th century. Play involves no hidden
+        information. Each player begins with 16 pieces: one king, one queen, two
+        rooks, two knights, two bishops, and eight pawns.
+      </p>
+      <p>More info about Chess
+        <a href="https://en.wikipedia.org/wiki/Chess">here</a>
+      </p>
+      <p class="info">
+        The eight queens puzzle is the problem of placing eight chess queens on
+        an 8×8 chessboard so that no two queens threaten each other; thus, a
+        solution requires that no two queens share the same row, column, or
+        diagonal. The eight queens puzzle is an example of the more general n
+        queens problem of placing n non-attacking queens on an n×n chessboard,
+        for which solutions exist for all natural numbers n with the exception
+        of n = 2 and n = 3.
+      </p>
+      <p>More info about 8 queens puzzle
+        <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle">here</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      Sergio Tabares Hernández - alu0101124896@ull.edu.es - Spring 2020 -
+      University of La Laguna - Computer Science - Interactive Aplication
+      Programing
+    </p>
+  </footer>
 </body>
 
 </html>

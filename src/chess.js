@@ -35,14 +35,10 @@ class Chess {
     this.board = new BoardOnChess();
     this.CANVAS = document.getElementById("canvas");
     this.CONTEXT = this.CANVAS.getContext("2d");
-    if (window.innerWidth < window.innerHeight)
-    {
-      this.CANVAS.width = window.innerWidth - 175;
-      this.CANVAS.height = window.innerWidth - 175;
-    } else {
-      this.CANVAS.width = window.innerHeight - 175;
-      this.CANVAS.height = window.innerHeight - 175;
-    }
+    this.CANVAS.width = window.innerWidth / 2 - 100;
+    this.CANVAS.height = window.innerWidth / 2 - 100;
+    this.CONTEXT.translate(0, this.CANVAS.height);
+    this.board.draw(this.CONTEXT, this.CANVAS);
   }
 
   /**
