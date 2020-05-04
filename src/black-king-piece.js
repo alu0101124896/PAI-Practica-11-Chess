@@ -19,7 +19,7 @@ if (typeof require !== 'undefined') { // Execution in node
   PieceOnBlackKingPiece = Piece;
 }
 
-// const BLACK_KING_PIECE = document.getElementById('black-king-piece');
+const BLACK_KING_PIECE = document.getElementById('black-king-piece');
 
 /**
  * @description Class representing an black king piece

@@ -19,7 +19,7 @@ if (typeof require !== 'undefined') { // Execution in node
   PieceOnWhiteKnightPiece = Piece;
 }
 
-// const WHITE_KNIGHT_PIECE = document.getElementById('white-knight-piece');
+const WHITE_KNIGHT_PIECE = document.getElementById('white-knight-piece');
 
 /**
  * @description Class representing an white knight piece

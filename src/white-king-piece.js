@@ -19,7 +19,7 @@ else { // Execution in browser
   PieceOnWhiteKingPiece = Piece;
 }
 
-// const WHITE_KING_PIECE = document.getElementById('white-king-piece');
+const WHITE_KING_PIECE = document.getElementById('white-king-piece');
 
 /**
  * @description Class representing an white king piece

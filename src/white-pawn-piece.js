@@ -19,7 +19,7 @@ else { // Execution in browser
   PieceOnWhitePawnPiece = Piece;
 }
 
-// const WHITE_PAWN_PIECE = document.getElementById('white-pawn-piece');
+const WHITE_PAWN_PIECE = document.getElementById('white-pawn-piece');
 
 /**
  * @description Class representing an white pawn piece
