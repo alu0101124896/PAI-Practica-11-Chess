@@ -52,8 +52,8 @@ else { // Execution in browser
   BlackPawnPieceOnBoard = BlackPawnPiece;
 }
 
-const NUM_OF_RANKS = 8;
-const NUM_OF_FILES = 8;
+const NUM_OF_RANKS_ON_BOARD = 8;
+const NUM_OF_FILES_ON_BOARD = 8;
 // const LIGHT_TILE = 'peachPuff';
 // const DARK_TILE = 'lightSalmon';
 const LIGHT_TILE = '#f2d8b7';
@@ -74,12 +74,25 @@ class Board {
    */
   constructor() {
     this.grid = [];
-    for (let filesIterator = 0; filesIterator < NUM_OF_FILES; filesIterator++) {
+    for (let filesIterator = 0; filesIterator < NUM_OF_FILES_ON_BOARD; filesIterator++) {
       let tempFile = [];
-      for (let ranksIterator = 0; ranksIterator < NUM_OF_RANKS; ranksIterator++) {
+      for (let ranksIterator = 0; ranksIterator < NUM_OF_RANKS_ON_BOARD; ranksIterator++) {
         tempFile.push(0);
       }
       this.grid.push(tempFile);
+    }
+  }
+
+  /**
+   * @description Function that resets the board to 0
+   *
+   * @memberof Board
+   */
+  reset() {
+    for (let filesIterator = 0; filesIterator < NUM_OF_FILES_ON_BOARD; filesIterator++) {
+      for (let ranksIterator = 0; ranksIterator < NUM_OF_RANKS_ON_BOARD; ranksIterator++) {
+        this.grid[filesIterator][ranksIterator] = 0;
+      }
     }
   }
 
@@ -111,7 +124,7 @@ class Board {
     this.grid[0][7] = new BlackRookPieceOnBoard(0, 7);
     this.grid[7][7] = new BlackRookPieceOnBoard(7, 7);
 
-    for (let filesIterator = 0; filesIterator < NUM_OF_FILES; filesIterator++) {
+    for (let filesIterator = 0; filesIterator < NUM_OF_FILES_ON_BOARD; filesIterator++) {
       this.grid[filesIterator][1] = new WhitePawnPieceOnBoard(filesIterator, 1);
       this.grid[filesIterator][6] = new BlackPawnPieceOnBoard(filesIterator, 6);
     }
@@ -126,8 +139,8 @@ class Board {
    */
   draw(CONTEXT, CANVAS) {
     CONTEXT.clearRect(0, 0, CANVAS.width, -CANVAS.height);
-    for (let filesIterator = 0; filesIterator < NUM_OF_FILES; filesIterator++) {
-      for (let ranksIterator = 0; ranksIterator < NUM_OF_RANKS; ranksIterator++) {
+    for (let filesIterator = 0; filesIterator < NUM_OF_FILES_ON_BOARD; filesIterator++) {
+      for (let ranksIterator = 0; ranksIterator < NUM_OF_RANKS_ON_BOARD; ranksIterator++) {
         if (((filesIterator + ranksIterator) % 2) === 0) {
           CONTEXT.fillStyle = DARK_TILE;
         } else {
