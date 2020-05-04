@@ -10,13 +10,13 @@
 
 "use strict";
 
-let expectOnPieceTest;
+let expectOnWhiteKnightPieceTest;
 let WhiteKnightPieceOnWhiteKnightPieceTest;
 if (typeof require !== 'undefined') { // Execution in node
-  expectOnPieceTest = require('chai').expect;
+  expectOnWhiteKnightPieceTest = require('chai').expect;
   WhiteKnightPieceOnWhiteKnightPieceTest = require('../src/white-knight-piece.js').WhiteKnightPiece;
 } else { // Execution in browser
-  expectOnPieceTest = expect;
+  expectOnWhiteKnightPieceTest = expect;
   WhiteKnightPieceOnWhiteKnightPieceTest = WhiteKnightPiece;
 }
 
@@ -24,22 +24,22 @@ describe('White Knight Piece Class', () => {
   describe('Default inherited properties', () => {
     const MY_WHITE_KNIGHT_PIECE = new WhiteKnightPieceOnWhiteKnightPieceTest();
 
-    it('White Knight Piece has a rank', () => {
-      expectOnPieceTest(MY_WHITE_KNIGHT_PIECE).to.have.property('rank');
-      expectOnPieceTest(MY_WHITE_KNIGHT_PIECE.rank).to.be.a('number');
-    });
-
     it('White Knight Piece has a file', () => {
-      expectOnPieceTest(MY_WHITE_KNIGHT_PIECE).to.have.property('file');
-      expectOnPieceTest(MY_WHITE_KNIGHT_PIECE.file).to.be.a('number');
+      expectOnWhiteKnightPieceTest(MY_WHITE_KNIGHT_PIECE).to.have.property('file');
+      expectOnWhiteKnightPieceTest(MY_WHITE_KNIGHT_PIECE.file).to.be.a('number');
     });
 
-    it('Default rank is 0', () => {
-      expectOnPieceTest(MY_WHITE_KNIGHT_PIECE.rank).to.be.equal(0);
+    it('White Knight Piece has a rank', () => {
+      expectOnWhiteKnightPieceTest(MY_WHITE_KNIGHT_PIECE).to.have.property('rank');
+      expectOnWhiteKnightPieceTest(MY_WHITE_KNIGHT_PIECE.rank).to.be.a('number');
     });
 
     it('Default file is 0', () => {
-      expectOnPieceTest(MY_WHITE_KNIGHT_PIECE.file).to.be.equal(0);
+      expectOnWhiteKnightPieceTest(MY_WHITE_KNIGHT_PIECE.file).to.be.equal(0);
+    });
+
+    it('Default rank is 0', () => {
+      expectOnWhiteKnightPieceTest(MY_WHITE_KNIGHT_PIECE.rank).to.be.equal(0);
     });
   });
 
@@ -47,12 +47,12 @@ describe('White Knight Piece Class', () => {
     const MY_WHITE_KNIGHT_PIECE =
       new WhiteKnightPieceOnWhiteKnightPieceTest(5, 10);
 
-    it('Modifies default rank correctly', () => {
-      expectOnPieceTest(MY_WHITE_KNIGHT_PIECE.rank).to.be.equal(5);
+    it('Modifies default file correctly', () => {
+      expectOnWhiteKnightPieceTest(MY_WHITE_KNIGHT_PIECE.file).to.be.equal(5);
     });
 
-    it('Modifies default file correctly', () => {
-      expectOnPieceTest(MY_WHITE_KNIGHT_PIECE.file).to.be.equal(10);
+    it('Modifies default rank correctly', () => {
+      expectOnWhiteKnightPieceTest(MY_WHITE_KNIGHT_PIECE.rank).to.be.equal(10);
     });
   });
 });

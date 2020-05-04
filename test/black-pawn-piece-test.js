@@ -10,13 +10,13 @@
 
 "use strict";
 
-let expectOnPieceTest;
+let expectOnBlackPawnPieceTest;
 let BlackPawnPieceOnBlackPawnPieceTest;
 if (typeof require !== 'undefined') { // Execution in node
-  expectOnPieceTest = require('chai').expect;
+  expectOnBlackPawnPieceTest = require('chai').expect;
   BlackPawnPieceOnBlackPawnPieceTest = require('../src/black-pawn-piece.js').BlackPawnPiece;
 } else { // Execution in browser
-  expectOnPieceTest = expect;
+  expectOnBlackPawnPieceTest = expect;
   BlackPawnPieceOnBlackPawnPieceTest = BlackPawnPiece;
 }
 
@@ -24,34 +24,34 @@ describe('Black Pawn Piece Class', () => {
   describe('Default inherited properties', () => {
     const MY_BLACK_PAWN_PIECE = new BlackPawnPieceOnBlackPawnPieceTest();
 
-    it('Black Pawn Piece has a rank', () => {
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE).to.have.property('rank');
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE.rank).to.be.a('number');
-    });
-
     it('Black Pawn Piece has a file', () => {
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE).to.have.property('file');
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE.file).to.be.a('number');
+      expectOnBlackPawnPieceTest(MY_BLACK_PAWN_PIECE).to.have.property('file');
+      expectOnBlackPawnPieceTest(MY_BLACK_PAWN_PIECE.file).to.be.a('number');
     });
 
-    it('Default rank is 0', () => {
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE.rank).to.be.equal(0);
+    it('Black Pawn Piece has a rank', () => {
+      expectOnBlackPawnPieceTest(MY_BLACK_PAWN_PIECE).to.have.property('rank');
+      expectOnBlackPawnPieceTest(MY_BLACK_PAWN_PIECE.rank).to.be.a('number');
     });
 
     it('Default file is 0', () => {
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE.file).to.be.equal(0);
+      expectOnBlackPawnPieceTest(MY_BLACK_PAWN_PIECE.file).to.be.equal(0);
+    });
+
+    it('Default rank is 0', () => {
+      expectOnBlackPawnPieceTest(MY_BLACK_PAWN_PIECE.rank).to.be.equal(0);
     });
   });
 
   describe('Non default property values', () => {
     const MY_BLACK_PAWN_PIECE = new BlackPawnPieceOnBlackPawnPieceTest(5, 10);
 
-    it('Modifies default rank correctly', () => {
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE.rank).to.be.equal(5);
+    it('Modifies default file correctly', () => {
+      expectOnBlackPawnPieceTest(MY_BLACK_PAWN_PIECE.file).to.be.equal(5);
     });
 
-    it('Modifies default file correctly', () => {
-      expectOnPieceTest(MY_BLACK_PAWN_PIECE.file).to.be.equal(10);
+    it('Modifies default rank correctly', () => {
+      expectOnBlackPawnPieceTest(MY_BLACK_PAWN_PIECE.rank).to.be.equal(10);
     });
   });
 });

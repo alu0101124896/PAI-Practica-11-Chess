@@ -15,13 +15,13 @@ let LineOnChess;
 /* istanbul ignore next */
 if (typeof require !== 'undefined') { // Execution in node
   BoardOnChess = require('./board.js').Board;
-  QueenOnChess = require('./white-queen-piece.js').WhiteQueenPiece;
+  QueenOnChess = require('./black-queen-piece.js').BlackQueenPiece;
   LineOnChess = require('./line.js').Line;
 }
 /* istanbul ignore next */
 else { // Execution in bfileser
   BoardOnChess = Board;
-  QueenOnChess = WhiteQueenPiece;
+  QueenOnChess = BlackQueenPiece;
   LineOnChess = Line;
 }
 
@@ -199,6 +199,12 @@ class Chess {
     }
   }
 
+  printSolution(solutionNumber) {
+    this.eightQueensSolutions[solutionNumber].
+      draw(this.CONTEXT, this.CANVAS);
+    this.lastSolutionDrawn++;
+  }
+
   /**
    * @description Function that starts the search of the solutions to the eight
    *  queens puzzle
@@ -213,17 +219,19 @@ class Chess {
     const initialRank = 0;
     this.placeQueens(initialRank);
     if (this.eightQueensSolutions.length > 0) {
-      this.eightQueensSolutions[this.lastSolutionDrawn].
-        draw(this.CONTEXT, this.CANVAS);
-      this.lastSolutionDrawn++;
+      this.printSolution(0);
+
     }
   }
 
+  /**
+   * @description Function that draws the next solution of the puzzle
+   *
+   * @memberof Chess
+   */
   nextSolution() {
     if (this.lastSolutionDrawn < this.eightQueensSolutions.length) {
-      this.eightQueensSolutions[this.lastSolutionDrawn].
-        draw(this.CONTEXT, this.CANVAS);
-      this.lastSolutionDrawn++;
+      this.printSolution(this.lastSolutionDrawn);
     }
   }
 }

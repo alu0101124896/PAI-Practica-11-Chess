@@ -10,13 +10,13 @@
 
 "use strict";
 
-let expectOnPieceTest;
+let expectOnWhiteBishopPieceTest;
 let WhiteBishopPieceOnWhiteBishopPieceTest;
 if (typeof require !== 'undefined') { // Execution in node
-  expectOnPieceTest = require('chai').expect;
+  expectOnWhiteBishopPieceTest = require('chai').expect;
   WhiteBishopPieceOnWhiteBishopPieceTest = require('../src/white-bishop-piece.js').WhiteBishopPiece;
 } else { // Execution in browser
-  expectOnPieceTest = expect;
+  expectOnWhiteBishopPieceTest = expect;
   WhiteBishopPieceOnWhiteBishopPieceTest = WhiteBishopPiece;
 }
 
@@ -24,22 +24,22 @@ describe('White Bishop Piece Class', () => {
   describe('Default inherited properties', () => {
     const MY_WHITE_BISHOP_PIECE = new WhiteBishopPieceOnWhiteBishopPieceTest();
 
-    it('White Bishop Piece has a rank', () => {
-      expectOnPieceTest(MY_WHITE_BISHOP_PIECE).to.have.property('rank');
-      expectOnPieceTest(MY_WHITE_BISHOP_PIECE.rank).to.be.a('number');
-    });
-
     it('White Bishop Piece has a file', () => {
-      expectOnPieceTest(MY_WHITE_BISHOP_PIECE).to.have.property('file');
-      expectOnPieceTest(MY_WHITE_BISHOP_PIECE.file).to.be.a('number');
+      expectOnWhiteBishopPieceTest(MY_WHITE_BISHOP_PIECE).to.have.property('file');
+      expectOnWhiteBishopPieceTest(MY_WHITE_BISHOP_PIECE.file).to.be.a('number');
     });
 
-    it('Default rank is 0', () => {
-      expectOnPieceTest(MY_WHITE_BISHOP_PIECE.rank).to.be.equal(0);
+    it('White Bishop Piece has a rank', () => {
+      expectOnWhiteBishopPieceTest(MY_WHITE_BISHOP_PIECE).to.have.property('rank');
+      expectOnWhiteBishopPieceTest(MY_WHITE_BISHOP_PIECE.rank).to.be.a('number');
     });
 
     it('Default file is 0', () => {
-      expectOnPieceTest(MY_WHITE_BISHOP_PIECE.file).to.be.equal(0);
+      expectOnWhiteBishopPieceTest(MY_WHITE_BISHOP_PIECE.file).to.be.equal(0);
+    });
+
+    it('Default rank is 0', () => {
+      expectOnWhiteBishopPieceTest(MY_WHITE_BISHOP_PIECE.rank).to.be.equal(0);
     });
   });
 
@@ -47,12 +47,12 @@ describe('White Bishop Piece Class', () => {
     const MY_WHITE_BISHOP_PIECE =
       new WhiteBishopPieceOnWhiteBishopPieceTest(5, 10);
 
-    it('Modifies default rank correctly', () => {
-      expectOnPieceTest(MY_WHITE_BISHOP_PIECE.rank).to.be.equal(5);
+    it('Modifies default file correctly', () => {
+      expectOnWhiteBishopPieceTest(MY_WHITE_BISHOP_PIECE.file).to.be.equal(5);
     });
 
-    it('Modifies default file correctly', () => {
-      expectOnPieceTest(MY_WHITE_BISHOP_PIECE.file).to.be.equal(10);
+    it('Modifies default rank correctly', () => {
+      expectOnWhiteBishopPieceTest(MY_WHITE_BISHOP_PIECE.rank).to.be.equal(10);
     });
   });
 });

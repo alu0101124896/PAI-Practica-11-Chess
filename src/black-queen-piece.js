@@ -37,17 +37,30 @@ class BlackQueenPiece extends PieceOnBlackQueenPiece {
    */
   constructor(file = 0, rank = 0) {
     super(file, rank);
-    /* istanbul ignore next */
-    if (typeof exports === 'undefined') { // Execution in browser
-      this.img = new Image();
-    }
   }
 
+  /* istanbul ignore next */
+  /**
+   * @description Function that draws the piece at the given canvas
+   *
+   * @param {*} CONTEXT - Canvas context
+   * @param {*} CANVAS - Canvas
+   * @memberof BlackQueenPiece
+   */
   drawPiece(CONTEXT, CANVAS) {
     CONTEXT.drawImage(BLACK_QUEEN_PIECE, this.file * (CANVAS.width / 8),
       -this.rank * (CANVAS.width / 8), CANVAS.width / 8, -CANVAS.height / 8);
   }
 
+  /* istanbul ignore next */
+  /**
+   * @description Function that draws the piece at the given canvas when the
+   *  image is loaded
+   *
+   * @param {*} CONTEXT - Canvas context
+   * @param {*} CANVAS - Canvas
+   * @memberof BlackQueenPiece
+   */
   draw(CONTEXT, CANVAS) {
     BLACK_QUEEN_PIECE.onload = this.drawPiece(CONTEXT, CANVAS);
   }

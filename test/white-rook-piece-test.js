@@ -10,13 +10,13 @@
 
 "use strict";
 
-let expectOnPieceTest;
+let expectOnWhiteRookPieceTest;
 let WhiteRookPieceOnWhiteRookPieceTest;
 if (typeof require !== 'undefined') { // Execution in node
-  expectOnPieceTest = require('chai').expect;
+  expectOnWhiteRookPieceTest = require('chai').expect;
   WhiteRookPieceOnWhiteRookPieceTest = require('../src/white-rook-piece.js').WhiteRookPiece;
 } else { // Execution in browser
-  expectOnPieceTest = expect;
+  expectOnWhiteRookPieceTest = expect;
   WhiteRookPieceOnWhiteRookPieceTest = WhiteRookPiece;
 }
 
@@ -24,34 +24,34 @@ describe('White Rook Piece Class', () => {
   describe('Default inherited properties', () => {
     const MY_WHITE_ROOK_PIECE = new WhiteRookPieceOnWhiteRookPieceTest();
 
-    it('White Rook Piece has a rank', () => {
-      expectOnPieceTest(MY_WHITE_ROOK_PIECE).to.have.property('rank');
-      expectOnPieceTest(MY_WHITE_ROOK_PIECE.rank).to.be.a('number');
-    });
-
     it('White Rook Piece has a file', () => {
-      expectOnPieceTest(MY_WHITE_ROOK_PIECE).to.have.property('file');
-      expectOnPieceTest(MY_WHITE_ROOK_PIECE.file).to.be.a('number');
+      expectOnWhiteRookPieceTest(MY_WHITE_ROOK_PIECE).to.have.property('file');
+      expectOnWhiteRookPieceTest(MY_WHITE_ROOK_PIECE.file).to.be.a('number');
     });
 
-    it('Default rank is 0', () => {
-      expectOnPieceTest(MY_WHITE_ROOK_PIECE.rank).to.be.equal(0);
+    it('White Rook Piece has a rank', () => {
+      expectOnWhiteRookPieceTest(MY_WHITE_ROOK_PIECE).to.have.property('rank');
+      expectOnWhiteRookPieceTest(MY_WHITE_ROOK_PIECE.rank).to.be.a('number');
     });
 
     it('Default file is 0', () => {
-      expectOnPieceTest(MY_WHITE_ROOK_PIECE.file).to.be.equal(0);
+      expectOnWhiteRookPieceTest(MY_WHITE_ROOK_PIECE.file).to.be.equal(0);
+    });
+
+    it('Default rank is 0', () => {
+      expectOnWhiteRookPieceTest(MY_WHITE_ROOK_PIECE.rank).to.be.equal(0);
     });
   });
 
   describe('Non default property values', () => {
     const MY_WHITE_ROOK_PIECE = new WhiteRookPieceOnWhiteRookPieceTest(5, 10);
 
-    it('Modifies default rank correctly', () => {
-      expectOnPieceTest(MY_WHITE_ROOK_PIECE.rank).to.be.equal(5);
+    it('Modifies default file correctly', () => {
+      expectOnWhiteRookPieceTest(MY_WHITE_ROOK_PIECE.file).to.be.equal(5);
     });
 
-    it('Modifies default file correctly', () => {
-      expectOnPieceTest(MY_WHITE_ROOK_PIECE.file).to.be.equal(10);
+    it('Modifies default rank correctly', () => {
+      expectOnWhiteRookPieceTest(MY_WHITE_ROOK_PIECE.rank).to.be.equal(10);
     });
   });
 });

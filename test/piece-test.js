@@ -23,22 +23,22 @@ describe('Piece Class', () => {
   describe('Default properties', () => {
     const MY_PIECE = new PieceOnPieceTest();
 
-    it('Piece has a rank', () => {
-      expectOnPieceTest(MY_PIECE).to.have.property('rank');
-      expectOnPieceTest(MY_PIECE.rank).to.be.a('number');
-    });
-
     it('Piece has a file', () => {
       expectOnPieceTest(MY_PIECE).to.have.property('file');
       expectOnPieceTest(MY_PIECE.file).to.be.a('number');
     });
 
-    it('Default rank is 0', () => {
-      expectOnPieceTest(MY_PIECE.rank).to.be.equal(0);
+    it('Piece has a rank', () => {
+      expectOnPieceTest(MY_PIECE).to.have.property('rank');
+      expectOnPieceTest(MY_PIECE.rank).to.be.a('number');
     });
 
     it('Default file is 0', () => {
       expectOnPieceTest(MY_PIECE.file).to.be.equal(0);
+    });
+
+    it('Default rank is 0', () => {
+      expectOnPieceTest(MY_PIECE.rank).to.be.equal(0);
     });
   });
 
@@ -46,11 +46,11 @@ describe('Piece Class', () => {
     const MY_PIECE = new PieceOnPieceTest(5, 10);
 
     it('Modifies default rank correctly', () => {
-      expectOnPieceTest(MY_PIECE.rank).to.be.equal(5);
+      expectOnPieceTest(MY_PIECE.file).to.be.equal(5);
     });
 
     it('Modifies default file correctly', () => {
-      expectOnPieceTest(MY_PIECE.file).to.be.equal(10);
+      expectOnPieceTest(MY_PIECE.rank).to.be.equal(10);
     });
   });
 });

@@ -10,13 +10,13 @@
 
 "use strict";
 
-let expectOnPieceTest;
+let expectOnBlackKnightPieceTest;
 let BlackKnightPieceOnBlackKnightPieceTest;
 if (typeof require !== 'undefined') { // Execution in node
-  expectOnPieceTest = require('chai').expect;
+  expectOnBlackKnightPieceTest = require('chai').expect;
   BlackKnightPieceOnBlackKnightPieceTest = require('../src/black-knight-piece.js').BlackKnightPiece;
 } else { // Execution in browser
-  expectOnPieceTest = expect;
+  expectOnBlackKnightPieceTest = expect;
   BlackKnightPieceOnBlackKnightPieceTest = BlackKnightPiece;
 }
 
@@ -24,22 +24,22 @@ describe('Black Knight Piece Class', () => {
   describe('Default inherited properties', () => {
     const MY_BLACK_KNIGHT_PIECE = new BlackKnightPieceOnBlackKnightPieceTest();
 
-    it('Black Knight Piece has a rank', () => {
-      expectOnPieceTest(MY_BLACK_KNIGHT_PIECE).to.have.property('rank');
-      expectOnPieceTest(MY_BLACK_KNIGHT_PIECE.rank).to.be.a('number');
-    });
-
     it('Black Knight Piece has a file', () => {
-      expectOnPieceTest(MY_BLACK_KNIGHT_PIECE).to.have.property('file');
-      expectOnPieceTest(MY_BLACK_KNIGHT_PIECE.file).to.be.a('number');
+      expectOnBlackKnightPieceTest(MY_BLACK_KNIGHT_PIECE).to.have.property('file');
+      expectOnBlackKnightPieceTest(MY_BLACK_KNIGHT_PIECE.file).to.be.a('number');
     });
 
-    it('Default rank is 0', () => {
-      expectOnPieceTest(MY_BLACK_KNIGHT_PIECE.rank).to.be.equal(0);
+    it('Black Knight Piece has a rank', () => {
+      expectOnBlackKnightPieceTest(MY_BLACK_KNIGHT_PIECE).to.have.property('rank');
+      expectOnBlackKnightPieceTest(MY_BLACK_KNIGHT_PIECE.rank).to.be.a('number');
     });
 
     it('Default file is 0', () => {
-      expectOnPieceTest(MY_BLACK_KNIGHT_PIECE.file).to.be.equal(0);
+      expectOnBlackKnightPieceTest(MY_BLACK_KNIGHT_PIECE.file).to.be.equal(0);
+    });
+
+    it('Default rank is 0', () => {
+      expectOnBlackKnightPieceTest(MY_BLACK_KNIGHT_PIECE.rank).to.be.equal(0);
     });
   });
 
@@ -47,12 +47,12 @@ describe('Black Knight Piece Class', () => {
     const MY_BLACK_KNIGHT_PIECE =
       new BlackKnightPieceOnBlackKnightPieceTest(5, 10);
 
-    it('Modifies default rank correctly', () => {
-      expectOnPieceTest(MY_BLACK_KNIGHT_PIECE.rank).to.be.equal(5);
+    it('Modifies default file correctly', () => {
+      expectOnBlackKnightPieceTest(MY_BLACK_KNIGHT_PIECE.file).to.be.equal(5);
     });
 
-    it('Modifies default file correctly', () => {
-      expectOnPieceTest(MY_BLACK_KNIGHT_PIECE.file).to.be.equal(10);
+    it('Modifies default rank correctly', () => {
+      expectOnBlackKnightPieceTest(MY_BLACK_KNIGHT_PIECE.rank).to.be.equal(10);
     });
   });
 });

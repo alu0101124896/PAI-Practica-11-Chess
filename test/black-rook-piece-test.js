@@ -10,13 +10,13 @@
 
 "use strict";
 
-let expectOnPieceTest;
+let expectOnBlackRookPieceTest;
 let BlackRookPieceOnBlackRookPieceTest;
 if (typeof require !== 'undefined') { // Execution in node
-  expectOnPieceTest = require('chai').expect;
+  expectOnBlackRookPieceTest = require('chai').expect;
   BlackRookPieceOnBlackRookPieceTest = require('../src/black-rook-piece.js').BlackRookPiece;
 } else { // Execution in browser
-  expectOnPieceTest = expect;
+  expectOnBlackRookPieceTest = expect;
   BlackRookPieceOnBlackRookPieceTest = BlackRookPiece;
 }
 
@@ -24,34 +24,34 @@ describe('Black Rook Piece Class', () => {
   describe('Default inherited properties', () => {
     const MY_BLACK_ROOK_PIECE = new BlackRookPieceOnBlackRookPieceTest();
 
-    it('Black Rook Piece has a rank', () => {
-      expectOnPieceTest(MY_BLACK_ROOK_PIECE).to.have.property('rank');
-      expectOnPieceTest(MY_BLACK_ROOK_PIECE.rank).to.be.a('number');
-    });
-
     it('Black Rook Piece has a file', () => {
-      expectOnPieceTest(MY_BLACK_ROOK_PIECE).to.have.property('file');
-      expectOnPieceTest(MY_BLACK_ROOK_PIECE.file).to.be.a('number');
+      expectOnBlackRookPieceTest(MY_BLACK_ROOK_PIECE).to.have.property('file');
+      expectOnBlackRookPieceTest(MY_BLACK_ROOK_PIECE.file).to.be.a('number');
     });
 
-    it('Default rank is 0', () => {
-      expectOnPieceTest(MY_BLACK_ROOK_PIECE.rank).to.be.equal(0);
+    it('Black Rook Piece has a rank', () => {
+      expectOnBlackRookPieceTest(MY_BLACK_ROOK_PIECE).to.have.property('rank');
+      expectOnBlackRookPieceTest(MY_BLACK_ROOK_PIECE.rank).to.be.a('number');
     });
 
     it('Default file is 0', () => {
-      expectOnPieceTest(MY_BLACK_ROOK_PIECE.file).to.be.equal(0);
+      expectOnBlackRookPieceTest(MY_BLACK_ROOK_PIECE.file).to.be.equal(0);
+    });
+
+    it('Default rank is 0', () => {
+      expectOnBlackRookPieceTest(MY_BLACK_ROOK_PIECE.rank).to.be.equal(0);
     });
   });
 
   describe('Non default property values', () => {
     const MY_BLACK_ROOK_PIECE = new BlackRookPieceOnBlackRookPieceTest(5, 10);
 
-    it('Modifies default rank correctly', () => {
-      expectOnPieceTest(MY_BLACK_ROOK_PIECE.rank).to.be.equal(5);
+    it('Modifies default file correctly', () => {
+      expectOnBlackRookPieceTest(MY_BLACK_ROOK_PIECE.file).to.be.equal(5);
     });
 
-    it('Modifies default file correctly', () => {
-      expectOnPieceTest(MY_BLACK_ROOK_PIECE.file).to.be.equal(10);
+    it('Modifies default rank correctly', () => {
+      expectOnBlackRookPieceTest(MY_BLACK_ROOK_PIECE.rank).to.be.equal(10);
     });
   });
 });
