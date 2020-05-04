@@ -1,0 +1,71 @@
+<!--
+  @file testrunner-chess.html
+  @author Sergio Tabares Hernández <alu0101124896@ull.edu.es>
+  @since Spring 2020
+  @summary University of La Laguna - Computer Science - Interactive Aplication Programing
+  @description This is the html for the tests of the Chess
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Tabares Hernández, Sergio</title>
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+</head>
+
+<body>
+  <h1>Chess - Unit Tests - Tabares Hernández, Sergio</h1>
+  <p><a href="../www/index.html">Return to index</a> </p>
+  <div id="mocha"></div>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script>
+    mocha.setup("bdd");
+  </script>
+
+  <!-- load code you want to test here -->
+      <script src="../src/piece.js"></script>
+      <script src="../src/white-king-piece.js"></script>
+      <script src="../src/white-queen-piece.js"></script>
+      <script src="../src/white-bishop-piece.js"></script>
+      <script src="../src/white-knight-piece.js"></script>
+      <script src="../src/white-rook-piece.js"></script>
+      <script src="../src/white-pawn-piece.js"></script>
+      <script src="../src/black-king-piece.js"></script>
+      <script src="../src/black-queen-piece.js"></script>
+      <script src="../src/black-bishop-piece.js"></script>
+      <script src="../src/black-knight-piece.js"></script>
+      <script src="../src/black-rook-piece.js"></script>
+      <script src="../src/black-pawn-piece.js"></script>
+      <script src="../src/board.js"></script>
+      <!-- <script src="../src/line.js"></script> -->
+      <!-- <script src="../src/chess.js"></script> -->
+
+  <script>
+    const expect = chai.expect;
+  </script>
+
+  <!-- load your test files here -->
+      <script src="./piece-test.js"></script>
+      <script src="./white-king-piece-test.js"></script>
+      <script src="./white-queen-piece-test.js"></script>
+      <script src="./white-bishop-piece-test.js"></script>
+      <script src="./white-knight-piece-test.js"></script>
+      <script src="./white-rook-piece-test.js"></script>
+      <script src="./white-pawn-piece-test.js"></script>
+      <script src="./black-king-piece-test.js"></script>
+      <script src="./black-queen-piece-test.js"></script>
+      <script src="./black-bishop-piece-test.js"></script>
+      <script src="./black-knight-piece-test.js"></script>
+      <script src="./black-rook-piece-test.js"></script>
+      <script src="./black-pawn-piece-test.js"></script>
+      <script src="./board-test.js"></script>
+
+  <script>
+    mocha.run();
+  </script>
+</body>
+
+</html>

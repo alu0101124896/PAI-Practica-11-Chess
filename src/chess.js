@@ -199,6 +199,12 @@ class Chess {
     }
   }
 
+  /**
+   * @description Function that prints an eight queens puzzle solution
+   *
+   * @param {number} solutionNumber
+   * @memberof Chess
+   */
   printSolution(solutionNumber) {
     this.eightQueensSolutions[solutionNumber].
       draw(this.CONTEXT, this.CANVAS);
