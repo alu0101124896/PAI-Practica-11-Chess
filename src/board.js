@@ -130,6 +130,7 @@ class Board {
     }
   }
 
+  /* istanbul ignore next */
   /**
    * @description Function that draws the board with the containing pieces
    *
