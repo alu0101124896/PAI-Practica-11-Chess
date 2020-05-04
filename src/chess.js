@@ -50,6 +50,7 @@ class Chess {
     this.board.draw(this.CONTEXT, this.CANVAS);
     this.eightQueensSolutions = [];
     this.queens = [];
+    this.lastSolutionDrawn = 0;
   }
 
   /**
@@ -207,11 +208,22 @@ class Chess {
   solvePuzzle() {
     this.board.reset();
     this.eightQueensSolutions.splice(this.eightQueensSolutions[0],
-      this.eightQueensSolutions.length)
+      this.eightQueensSolutions.length);
+    this.lastSolutionDrawn = 0;
     const initialRank = 0;
     this.placeQueens(initialRank);
     if (this.eightQueensSolutions.length > 0) {
-      this.eightQueensSolutions[0].draw(this.CONTEXT, this.CANVAS);
+      this.eightQueensSolutions[this.lastSolutionDrawn].
+        draw(this.CONTEXT, this.CANVAS);
+      this.lastSolutionDrawn++;
+    }
+  }
+
+  nextSolution() {
+    if (this.lastSolutionDrawn < this.eightQueensSolutions.length) {
+      this.eightQueensSolutions[this.lastSolutionDrawn].
+        draw(this.CONTEXT, this.CANVAS);
+      this.lastSolutionDrawn++;
     }
   }
 }
