@@ -4,7 +4,8 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program implements a poker hand class for the Poker game. More info about it here: https://en.wikipedia.org/wiki/Texas_hold_%27em
+ * @description This program implements a poker hand class for the Poker. More
+ *  info about it here: https://en.wikipedia.org/wiki/Poker
  */
 
 "use strict";
@@ -295,7 +296,8 @@ class PokerHand extends ClassHandOnPokerHand {
   }
 
   /**
-   * @description Function that classifies the hand depending on the higher hand value
+   * @description Function that classifies the hand depending on the higher hand
+   *  value
    *
    * @memberof PokerHand
    */
@@ -324,7 +326,8 @@ class PokerHand extends ClassHandOnPokerHand {
   }
 
   /**
-   * @description Function that calculates the probabilities of having each hand value
+   * @description Function that calculates the probabilities of having each hand
+   *  value
    *
    * @static
    * @returns {array} Returns an array of objects with the statistic data
@@ -420,7 +423,8 @@ class PokerHand extends ClassHandOnPokerHand {
     }
 
     statisticResults.forEach(handValue => {
-      handValue.appereancePercentage = handValue.timesAppeared / (numOfPlays * numOfHands);
+      handValue.appereancePercentage = handValue.timesAppeared /
+        (numOfPlays * numOfHands);
     });
 
     return statisticResults;

@@ -4,7 +4,8 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program implements a hand class for the Poker game. More info about it here: https://en.wikipedia.org/wiki/Texas_hold_%27em
+ * @description This program implements a hand class for the Poker. More info
+ *  about it here: https://en.wikipedia.org/wiki/Poker
  */
 
 "use strict";
@@ -62,17 +63,19 @@ class Hand {
         this.cards.push(newCard);
         return true;
       } else {
-        console.error('Error: El número de cartas en la mano ha superado el máximo.');
+        console.error(
+          'Error: El número de cartas en la mano ha superado el máximo.');
         return false;
       }
     } else {
-      console.error('Error: No se puede añadir un elemento distinto a una carta');
+      console.error(
+        'Error: No se puede añadir un elemento distinto a una carta');
       return false;
     }
   }
 
   /**
-   * @description Function that removes the first card from the hand and returns it
+   * @description Function that removes the first card from the hand
    *
    * @returns {ClassCardOnHand} Returns the first card of the hand
    * @memberof Deck
@@ -87,7 +90,7 @@ class Hand {
   }
 
   /**
-   * @description Function that removes a given card from the hand and returns it
+   * @description Function that removes a given card from the hand
    *
    * @param {ClassCardOnHand} cardToPop - Card to be removed from the hand
    * @returns {ClassCardOnHand} Returns the removed card from the hand
@@ -100,13 +103,15 @@ class Hand {
       this.cards.splice(INDEX_OF_CARD, 1);
       return POPPED_CARD;
     } else {
-      console.error('Error: No se puede extraer una carta que no pertenece a la mano.');
+      console.error(
+        'Error: No se puede extraer una carta que no pertenece a la mano.');
       return false;
     }
   }
 
   /**
-   * @description Function that moves the given number of cards from the given source set to the given destiny set
+   * @description Function that moves the given number of cards from the given
+   *  source set to the given destiny set
    *
    * @static
    * @param {*} sourceSet - Source deck/hand of cards
@@ -120,10 +125,12 @@ class Hand {
         if (sourceSet.cards.length > 0) {
           destinySet.addCard(sourceSet.popCard());
         } else {
-          console.error('Error: No quedan cartas disponibles en el/la mazo/mano de origen.')
+          console.error(
+            'Error: No quedan cartas disponibles en el/la mazo/mano de origen.')
         }
       } else {
-        console.error('Error: Número maximo de cartas alcanzado en el/la mazo/mano de destino.')
+        console.error('Error:' +
+          ' Número maximo de cartas alcanzado en el/la mazo/mano de destino.')
       }
     }
   }

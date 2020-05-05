@@ -1,0 +1,132 @@
+<!--
+  @file tabares-sergio-poker-game.html
+  @author Sergio Tabares Hernández <alu0101124896@ull.edu.es>
+  @since Spring 2020
+  @summary University of La Laguna - Computer Science - Interactive Aplication
+   Programing
+  @description This is the base html for the Chess. More info about it here:
+   https://en.wikipedia.org/wiki/Chess
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Tabares Hernández, Sergio</title>
+  <link rel="stylesheet" href="./chess.css">
+</head>
+
+<body>
+  <header id="header-flex-container">
+    <p class="header-flex-item"><a href="../www/index.html">Back to index</a> </p>
+    <h1 class="title-header-flex-item"><a href="">Poker Game - Sergio Tabares Hernandez</a> </h1>
+    <p class="header-flex-item"><a href="">JUGAR</a> </p>
+    <p class="header-flex-item"><a href="">APRENDER</a> </p>
+    <p class="header-flex-item"><a href="">OBSERVAR</a> </p>
+    <p class="header-flex-item"><a href="">COMUNIDAD</a> </p>
+    <p class="header-flex-item"><a href="">HERRAMIENTAS</a> </p>
+    <p class="spacer-header-flex-item"> </p>
+    <p class="header-flex-item"><a href="">BUSCAR</a> </p>
+    <p class="header-flex-item"><a href="">CONFIGURACIÓN</a> </p>
+    <p class="header-flex-item"><a href="">INICIAR SESIÓN</a> </p>
+  </header>
+
+  <section id="main-flex-container">
+    <div class="main-flex-canvas">
+      <canvas id="canvas"></canvas>
+      <div style="display:none;">
+        <img id="ace-spades-card" src="../img/poker-cards/2S.png">
+        <img id="king-spades-card" src="../img/poker-cards/3S.png">
+        <img id="queen-spades-card" src="../img/poker-cards/4S.png">
+        <img id="jack-spades-card" src="../img/poker-cards/5S.png">
+        <img id="ten-spades-card" src="../img/poker-cards/6S.png">
+        <img id="nine-spades-card" src="../img/poker-cards/7S.png">
+        <img id="eight-spades-card" src="../img/poker-cards/8S.png">
+        <img id="seven-spades-card" src="../img/poker-cards/9S.png">
+        <img id="six-spades-card" src="../img/poker-cards/10S.png">
+        <img id="five-spades-card" src="../img/poker-cards/JS.png">
+        <img id="four-spades-card" src="../img/poker-cards/QS.png">
+        <img id="three-spades-card" src="../img/poker-cards/KS.png">
+        <img id="two-spades-card" src="../img/poker-cards/AS.png">
+
+        <img id="ace-hearts-card" src="../img/poker-cards/2H.png">
+        <img id="king-hearts-card" src="../img/poker-cards/3H.png">
+        <img id="queen-hearts-card" src="../img/poker-cards/4H.png">
+        <img id="jack-hearts-card" src="../img/poker-cards/5H.png">
+        <img id="ten-hearts-card" src="../img/poker-cards/6H.png">
+        <img id="nine-hearts-card" src="../img/poker-cards/7H.png">
+        <img id="eight-hearts-card" src="../img/poker-cards/8H.png">
+        <img id="seven-hearts-card" src="../img/poker-cards/9H.png">
+        <img id="six-hearts-card" src="../img/poker-cards/10H.png">
+        <img id="five-hearts-card" src="../img/poker-cards/JH.png">
+        <img id="four-hearts-card" src="../img/poker-cards/QH.png">
+        <img id="three-hearts-card" src="../img/poker-cards/KH.png">
+        <img id="two-hearts-card" src="../img/poker-cards/AH.png">
+
+        <img id="ace-diamonds-card" src="../img/poker-cards/2D.png">
+        <img id="king-diamonds-card" src="../img/poker-cards/3D.png">
+        <img id="queen-diamonds-card" src="../img/poker-cards/4D.png">
+        <img id="jack-diamonds-card" src="../img/poker-cards/5D.png">
+        <img id="ten-diamonds-card" src="../img/poker-cards/6D.png">
+        <img id="nine-diamonds-card" src="../img/poker-cards/7D.png">
+        <img id="eight-diamonds-card" src="../img/poker-cards/8D.png">
+        <img id="seven-diamonds-card" src="../img/poker-cards/9D.png">
+        <img id="six-diamonds-card" src="../img/poker-cards/10D.png">
+        <img id="five-diamonds-card" src="../img/poker-cards/JD.png">
+        <img id="four-diamonds-card" src="../img/poker-cards/QD.png">
+        <img id="three-diamonds-card" src="../img/poker-cards/KD.png">
+        <img id="two-diamonds-card" src="../img/poker-cards/AD.png">
+
+        <img id="ace-clubs-card" src="../img/poker-cards/2C.png">
+        <img id="king-clubs-card" src="../img/poker-cards/3C.png">
+        <img id="queen-clubs-card" src="../img/poker-cards/4C.png">
+        <img id="jack-clubs-card" src="../img/poker-cards/5C.png">
+        <img id="ten-clubs-card" src="../img/poker-cards/6C.png">
+        <img id="nine-clubs-card" src="../img/poker-cards/7C.png">
+        <img id="eight-clubs-card" src="../img/poker-cards/8C.png">
+        <img id="seven-clubs-card" src="../img/poker-cards/9C.png">
+        <img id="six-clubs-card" src="../img/poker-cards/10C.png">
+        <img id="five-clubs-card" src="../img/poker-cards/JC.png">
+        <img id="four-clubs-card" src="../img/poker-cards/QC.png">
+        <img id="three-clubs-card" src="../img/poker-cards/KC.png">
+        <img id="two-clubs-card" src="../img/poker-cards/AC.png">
+      </div>
+      <script src="../src/card.js"></script>
+      <script src="../src/deck.js"></script>
+      <script src="../src/hand.js"></script>
+      <script src="../src/poker-hand.js"></script>
+      <script src="../src/poker.js"></script>
+      <script>
+        let poker = new Poker();
+      </script>
+    </div>
+  </section>
+
+  <section>
+    <h2>⇓ ⇓ ⇓ Info ⇓ ⇓ ⇓</h2>
+    <div>
+      <p class="info">
+        Poker is any of a number of card games in which players wager over which
+        hand is best according to that specific game's rules in ways similar to
+        these rankings. Often using a standard deck, poker games vary in deck
+        configuration, the number of cards in play, the number dealt face up or
+        face down, and the number shared by all players, but all have rules
+        which involve one or more rounds of betting.
+      </p>
+      <p>More info about Poker
+        <a href="https://en.wikipedia.org/wiki/Poker">here</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      Sergio Tabares Hernández - alu0101124896@ull.edu.es - Spring 2020 -
+      University of La Laguna - Computer Science - Interactive Aplication
+      Programing
+    </p>
+  </footer>
+</body>
+
+</html>

@@ -4,7 +4,8 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program implements a deck class for the Poker game. More info about it here: https://en.wikipedia.org/wiki/Texas_hold_%27em
+ * @description This program implements a deck class for the Poker. More info
+ *  about it here: https://en.wikipedia.org/wiki/Poker
  */
 
 "use strict";
@@ -39,8 +40,11 @@ const FOUR_ON_DECK = 4;
 const THREE_ON_DECK = 3;
 const TWO_ON_DECK = 2;
 
-const SUITS_ON_DECK = [CLUBS_ON_DECK, DIAMONDS_ON_DECK, HEARTS_ON_DECK, SPADES_ON_DECK];
-const RANKS_ON_DECK = [TWO_ON_DECK, THREE_ON_DECK, FOUR_ON_DECK, FIVE_ON_DECK, SIX_ON_DECK, SEVEN_ON_DECK, EIGHT_ON_DECK, NINE_ON_DECK, TEN_ON_DECK, JACK_ON_DECK, QUEEN_ON_DECK, KING_ON_DECK, ACE_ON_DECK];
+const SUITS_ON_DECK = [CLUBS_ON_DECK, DIAMONDS_ON_DECK, HEARTS_ON_DECK,
+  SPADES_ON_DECK];
+const RANKS_ON_DECK = [TWO_ON_DECK, THREE_ON_DECK, FOUR_ON_DECK, FIVE_ON_DECK,
+  SIX_ON_DECK, SEVEN_ON_DECK, EIGHT_ON_DECK, NINE_ON_DECK, TEN_ON_DECK,
+  JACK_ON_DECK, QUEEN_ON_DECK, KING_ON_DECK, ACE_ON_DECK];
 
 /**
  * @description Class representing a deck of cards
@@ -69,7 +73,8 @@ class Deck extends ClassHandOnDeck {
    * @memberof Deck
    */
   shuffle() {
-    for (let firstIterator = this.cards.length - 1; firstIterator > 0; firstIterator--) {
+    for (let firstIterator = this.cards.length - 1; firstIterator > 0;
+      firstIterator--) {
       const SECOND_ITERATOR = Math.floor(Math.random() * (firstIterator + 1));
       this.swap(firstIterator, SECOND_ITERATOR);
     }
@@ -89,7 +94,8 @@ class Deck extends ClassHandOnDeck {
   }
 
   /**
-   * @description Function that calls the quicksort function with the first and last indexes of the deck
+   * @description Function that calls the quicksort function with the first and
+   *  last indexes of the deck
    *
    * @memberof Deck
    */
@@ -100,7 +106,8 @@ class Deck extends ClassHandOnDeck {
   }
 
   /**
-   * @description Recursive function that sorts the deck following the quicksort algoritm
+   * @description Recursive function that sorts the deck following the quicksort
+   *  algoritm
    *
    * @param {number} lowIndex - Index of the lowest card
    * @param {number} highIndex - Index of the highest card
@@ -125,8 +132,10 @@ class Deck extends ClassHandOnDeck {
   split(lowIndex, highIndex) {
     const PIVOT_CARD = this.cards[highIndex];
     let firstIterator = lowIndex;
-    for (let secondIterator = lowIndex; secondIterator < highIndex; secondIterator++) {
-      const HIGHEST_CARD = ClassCardOnDeck.compare(PIVOT_CARD, this.cards[secondIterator]);
+    for (let secondIterator = lowIndex; secondIterator < highIndex;
+      secondIterator++) {
+      const HIGHEST_CARD =
+        ClassCardOnDeck.compare(PIVOT_CARD, this.cards[secondIterator]);
       if (HIGHEST_CARD === PIVOT_CARD) {
         this.swap(firstIterator, secondIterator);
         firstIterator++;
@@ -137,7 +146,8 @@ class Deck extends ClassHandOnDeck {
   }
 
   /**
-   * @description Function that generates a given number of hands with a given number of cards each one
+   * @description Function that generates a given number of hands with a given
+   *  number of cards each one
    *
    * @param {array} hands - Array of hands to give cads
    * @param {number} numOfCardsByHand Number of cards to add to each hand
@@ -145,7 +155,8 @@ class Deck extends ClassHandOnDeck {
    * @memberof Deck
    */
   dealHands(hands, numOfCardsByHand) {
-    for (let cardsIterator = 0; cardsIterator < numOfCardsByHand; cardsIterator++) {
+    for (let cardsIterator = 0; cardsIterator < numOfCardsByHand;
+      cardsIterator++) {
       hands.forEach(hand => {
         hand.addCard(this.popCard());
       });

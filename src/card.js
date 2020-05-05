@@ -4,7 +4,8 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program implements a card class for the Poker game. More info about it here: https://en.wikipedia.org/wiki/Texas_hold_%27em
+ * @description This program implements a card class for the Poker. More info
+ *  about it here: https://en.wikipedia.org/wiki/Poker
  */
 
 "use strict";
@@ -50,43 +51,197 @@ class Card {
     switch (this.suit) {
       case SPADES_ON_CARD:
         switch (this.rank) {
-          case ACE_ON_CARD: this.img = document.getElementById('ace-spades-card'); break;
-          case KING_ON_CARD: this.img = document.getElementById('king-spades-card'); break;
-          case QUEEN_ON_CARD: this.img = document.getElementById('queen-spades-card'); break;
-          case JACK_ON_CARD: this.img = document.getElementById('jack-spades-card'); break;
-          case TEN_ON_CARD: this.img = document.getElementById('ten-spades-card'); break;
-          case NINE_ON_CARD: this.img = document.getElementById('nine-spades-card'); break;
-          case EIGHT_ON_CARD: this.img = document.getElementById('eight-spades-card'); break;
-          case SEVEN_ON_CARD: this.img = document.getElementById('seven-spades-card'); break;
-          case SIX_ON_CARD: this.img = document.getElementById('six-spades-card'); break;
-          case FIVE_ON_CARD: this.img = document.getElementById('five-spades-card'); break;
-          case FOUR_ON_CARD: this.img = document.getElementById('four-spades-card'); break;
-          case THREE_ON_CARD: this.img = document.getElementById('three-spades-card'); break;
-          case TWO_ON_CARD: this.img = document.getElementById('two-spades-card'); break;
+          case ACE_ON_CARD:
+            this.img = document.getElementById('ace-spades-card');
+            break;
+          case KING_ON_CARD:
+            this.img = document.getElementById('king-spades-card');
+            break;
+          case QUEEN_ON_CARD:
+            this.img = document.getElementById('queen-spades-card');
+            break;
+          case JACK_ON_CARD:
+            this.img = document.getElementById('jack-spades-card');
+            break;
+          case TEN_ON_CARD:
+            this.img = document.getElementById('ten-spades-card');
+            break;
+          case NINE_ON_CARD:
+            this.img = document.getElementById('nine-spades-card');
+            break;
+          case EIGHT_ON_CARD:
+            this.img = document.getElementById('eight-spades-card');
+            break;
+          case SEVEN_ON_CARD:
+            this.img = document.getElementById('seven-spades-card');
+            break;
+          case SIX_ON_CARD:
+            this.img = document.getElementById('six-spades-card');
+            break;
+          case FIVE_ON_CARD:
+            this.img = document.getElementById('five-spades-card');
+            break;
+          case FOUR_ON_CARD:
+            this.img = document.getElementById('four-spades-card');
+            break;
+          case THREE_ON_CARD:
+            this.img = document.getElementById('three-spades-card');
+            break;
+          case TWO_ON_CARD:
+            this.img = document.getElementById('two-spades-card');
+            break;
 
-          default: console.error('Error: unknown rank of spades');
+          default: console.error('Error: unknown rank on spades suit');
             break;
         }
         break;
       case HEARTS_ON_CARD:
-        suitString = 'Hearts';
+        switch (this.rank) {
+          case ACE_ON_CARD:
+            this.img = document.getElementById('ace-hearts-card');
+            break;
+          case KING_ON_CARD:
+            this.img = document.getElementById('king-hearts-card');
+            break;
+          case QUEEN_ON_CARD:
+            this.img = document.getElementById('queen-hearts-card');
+            break;
+          case JACK_ON_CARD:
+            this.img = document.getElementById('jack-hearts-card');
+            break;
+          case TEN_ON_CARD:
+            this.img = document.getElementById('ten-hearts-card');
+            break;
+          case NINE_ON_CARD:
+            this.img = document.getElementById('nine-hearts-card');
+            break;
+          case EIGHT_ON_CARD:
+            this.img = document.getElementById('eight-hearts-card');
+            break;
+          case SEVEN_ON_CARD:
+            this.img = document.getElementById('seven-hearts-card');
+            break;
+          case SIX_ON_CARD:
+            this.img = document.getElementById('six-hearts-card');
+            break;
+          case FIVE_ON_CARD:
+            this.img = document.getElementById('five-hearts-card');
+            break;
+          case FOUR_ON_CARD:
+            this.img = document.getElementById('four-hearts-card');
+            break;
+          case THREE_ON_CARD:
+            this.img = document.getElementById('three-hearts-card');
+            break;
+          case TWO_ON_CARD:
+            this.img = document.getElementById('two-hearts-card');
+            break;
+
+          default: console.error('Error: unknown rank on hearts suit');
+            break;
+        }
         break;
       case DIAMONDS_ON_CARD:
-        suitString = 'Diamonds';
+        switch (this.rank) {
+          case ACE_ON_CARD:
+            this.img = document.getElementById('ace-diamonds-card'); break;
+
+          case KING_ON_CARD:
+            this.img = document.getElementById('king-diamonds-card'); break;
+
+          case QUEEN_ON_CARD:
+            this.img = document.getElementById('queen-diamonds-card'); break;
+
+          case JACK_ON_CARD:
+            this.img = document.getElementById('jack-diamonds-card'); break;
+
+          case TEN_ON_CARD:
+            this.img = document.getElementById('ten-diamonds-card'); break;
+
+          case NINE_ON_CARD:
+            this.img = document.getElementById('nine-diamonds-card'); break;
+
+          case EIGHT_ON_CARD:
+            this.img = document.getElementById('eight-diamonds-card'); break;
+
+          case SEVEN_ON_CARD:
+            this.img = document.getElementById('seven-diamonds-card'); break;
+
+          case SIX_ON_CARD:
+            this.img = document.getElementById('six-diamonds-card'); break;
+
+          case FIVE_ON_CARD:
+            this.img = document.getElementById('five-diamonds-card'); break;
+
+          case FOUR_ON_CARD:
+            this.img = document.getElementById('four-diamonds-card'); break;
+
+          case THREE_ON_CARD:
+            this.img = document.getElementById('three-diamonds-card'); break;
+
+          case TWO_ON_CARD:
+            this.img = document.getElementById('two-diamonds-card'); break;
+
+
+          default: console.error('Error: unknown rank on diamonds suit');
+            break;
+        }
         break;
       case CLUBS_ON_CARD:
-        suitString = 'Clubs';
+        switch (this.rank) {
+          case ACE_ON_CARD:
+            this.img = document.getElementById('ace-clubs-card');
+            break;
+          case KING_ON_CARD:
+            this.img = document.getElementById('king-clubs-card');
+            break;
+          case QUEEN_ON_CARD:
+            this.img = document.getElementById('queen-clubs-card');
+            break;
+          case JACK_ON_CARD:
+            this.img = document.getElementById('jack-clubs-card');
+            break;
+          case TEN_ON_CARD:
+            this.img = document.getElementById('ten-clubs-card');
+            break;
+          case NINE_ON_CARD:
+            this.img = document.getElementById('nine-clubs-card');
+            break;
+          case EIGHT_ON_CARD:
+            this.img = document.getElementById('eight-clubs-card');
+            break;
+          case SEVEN_ON_CARD:
+            this.img = document.getElementById('seven-clubs-card');
+            break;
+          case SIX_ON_CARD:
+            this.img = document.getElementById('six-clubs-card');
+            break;
+          case FIVE_ON_CARD:
+            this.img = document.getElementById('five-clubs-card');
+            break;
+          case FOUR_ON_CARD:
+            this.img = document.getElementById('four-clubs-card');
+            break;
+          case THREE_ON_CARD:
+            this.img = document.getElementById('three-clubs-card');
+            break;
+          case TWO_ON_CARD:
+            this.img = document.getElementById('two-clubs-card');
+            break;
+
+          default: console.error('Error: unknown rank on clubs suit');
+            break;
+        }
         break;
 
-      default:
-        suitString = 'Unknown Suit';
+      default: console.error('Error: unknown suit');
         break;
     }
-    return rankString + ' of ' + suitString;
   }
 
   /**
-   * @description Function that compares two cards to see which one has the higher suit. In case of tie, compares the ranks.
+   * @description Function that compares two cards to see which one has the
+   *  higher suit. In case of tie, compares the ranks.
    *
    * @static
    * @param {Card} cardOne - First card to compare
