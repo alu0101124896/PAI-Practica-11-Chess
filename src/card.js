@@ -263,6 +263,20 @@ class Card {
     }
   }
 
+  betterThan(secondCard) {
+    if (this.suit > secondCard.suit) {
+      return true;
+    } else if (this.suit === secondCard.suit) {
+      if (this.rank >= secondCard.rank) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
   /* istanbul ignore next */
   /**
    * @description Function that draws the card at the given canvas
@@ -271,9 +285,9 @@ class Card {
    * @param {*} CANVAS - Canvas
    * @memberof TwoClubsCard
    */
-  drawCard(CONTEXT, CANVAS) {
-    CONTEXT.drawImage(this.img, this.suit * (CANVAS.width / 8),
-      -this.rank * (CANVAS.width / 8), CANVAS.width / 8, -CANVAS.height / 8);
+  drawCard(cardNumber, CONTEXT, CANVAS) {
+    CONTEXT.drawImage(this.img, cardNumber * (CANVAS.width / 5), 0,
+      CANVAS.width / 5, CANVAS.height);
   }
 
   /* istanbul ignore next */
@@ -285,8 +299,8 @@ class Card {
    * @param {*} CANVAS - Canvas
    * @memberof TwoClubsCard
    */
-  draw(CONTEXT, CANVAS) {
-    this.img.onload = this.drawCard(CONTEXT, CANVAS);
+  draw(cardNumber, CONTEXT, CANVAS) {
+    this.img.onload = this.drawCard(cardNumber, CONTEXT, CANVAS);
   }
 }
 

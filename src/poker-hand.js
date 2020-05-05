@@ -304,24 +304,34 @@ class PokerHand extends ClassHandOnPokerHand {
   classify() {
     if (this.hasRoyalFlush()) {
       this.label = 'Royal Flush';
+      this.handValue = 9;
     } else if (this.hasStraightFlush()) {
       this.label = 'Straight Flush';
+      this.handValue = 8;
     } else if (this.hasFourOfaKind()) {
       this.label = 'Four of a Kind';
+      this.handValue = 7;
     } else if (this.hasFullHouse()) {
       this.label = 'Full House';
+      this.handValue = 6;
     } else if (this.hasFlush()) {
       this.label = 'Flush';
+      this.handValue = 5;
     } else if (this.hasStraight()) {
       this.label = 'Straight';
+      this.handValue = 4;
     } else if (this.hasThreeOfaKind()) {
       this.label = 'Three of a Kind';
+      this.handValue = 3;
     } else if (this.hasTwoPairs()) {
       this.label = 'Two Pairs';
+      this.handValue = 2;
     } else if (this.hasPair()) {
       this.label = 'Pair';
+      this.handValue = 1;
     } else {
       this.label = '';
+      this.handValue = 0;
     }
   }
 
@@ -428,6 +438,30 @@ class PokerHand extends ClassHandOnPokerHand {
     });
 
     return statisticResults;
+  }
+
+  bestCard(){
+    let bestCard = this.cards[0];
+    for (let cardsIterator = 1; cardsIterator < this.cards.length; cardsIterator++) {
+      if (this.cards[cardsIterator].betterThan(bestCard)) {
+        bestCard = this.cards[cardsIterator];
+      }
+    }
+    return bestCard;
+  }
+
+  betterThan(secondHand) {
+    if (this.handValue === secondHand.handValue) {
+      if (this.bestCard().betterThan(secondHand.bestCard())) {
+        return true;
+      } else {
+        return false;
+      }
+    } else if (this.handValue > secondHand.handValue) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 

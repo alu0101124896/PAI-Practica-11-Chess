@@ -136,7 +136,9 @@ class Hand {
   }
 
   draw(CONTEXT, CANVAS) {
-
+    for (let cardsIterator = 0; cardsIterator < this.cards.length; cardsIterator++) {
+      this.cards[cardsIterator].draw(cardsIterator, CONTEXT, CANVAS);
+    }
   }
 }
 
