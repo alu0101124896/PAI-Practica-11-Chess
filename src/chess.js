@@ -49,6 +49,7 @@ class Chess {
     this.CONTEXT.translate(0, this.CANVAS.height);
     this.board.draw(this.CONTEXT, this.CANVAS);
     this.eightQueensSolutions = [];
+    this.solutionQueens = [];
     this.queens = [];
     this.lastSolutionDrawn = 0;
   }
@@ -187,6 +188,7 @@ class Chess {
   placeQueens(rank) {
     if (rank === NUM_OF_RANKS_ON_CHESS) {
       this.eightQueensSolutions.push(this.copy(this.board));
+      this.solutionQueens.push(JSON.parse(JSON.stringify(this.queens)));
     } else {
       for (let filesIterator = 0; filesIterator < NUM_OF_FILES_ON_CHESS;
         filesIterator++) {
@@ -200,6 +202,50 @@ class Chess {
   }
 
   /**
+   * @description Funcion that takes the algebraic notation from the file and
+   *  rank of the given queen
+   *
+   * @param {QueenOnChess} queen - Queen to get the algebraic notation
+   * @returns {string} Returns a string with the algebraic notation
+   * @memberof Chess
+   */
+  algebraicNotation(queen) {
+    let notationString = '';
+    switch (queen.file) {
+      case 0:
+        notationString += 'a';
+        break;
+      case 1:
+        notationString += 'b';
+        break;
+      case 2:
+        notationString += 'c';
+        break;
+      case 3:
+        notationString += 'd';
+        break;
+      case 4:
+        notationString += 'e';
+        break;
+      case 5:
+        notationString += 'f';
+        break;
+      case 6:
+        notationString += 'g';
+        break;
+      case 7:
+        notationString += 'h';
+        break;
+
+      default:
+        console.error('Error: Unknown file tile');
+        break;
+    }
+    notationString += queen.rank + 1;
+    return notationString;
+  }
+
+  /**
    * @description Function that prints an eight queens puzzle solution
    *
    * @param {number} solutionNumber
@@ -209,6 +255,12 @@ class Chess {
     this.eightQueensSolutions[solutionNumber].
       draw(this.CONTEXT, this.CANVAS);
     this.lastSolutionDrawn++;
+    for (let childrenIterator = 1; childrenIterator <= NUM_OF_FILES_ON_CHESS;
+      childrenIterator++) {
+      document.getElementById("solutionQueens").children[childrenIterator].
+        innerHTML = this.algebraicNotation(
+          this.solutionQueens[solutionNumber][childrenIterator]);
+    }
   }
 
   /**
