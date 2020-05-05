@@ -14,7 +14,7 @@
 <head>
   <meta charset="utf-8" />
   <title>Tabares Hernández, Sergio</title>
-  <link rel="stylesheet" href="./chess.css">
+  <link rel="stylesheet" href="./poker.css">
 </head>
 
 <body>
@@ -33,8 +33,10 @@
   </header>
 
   <section id="main-flex-container">
-    <div class="main-flex-canvas">
-      <canvas id="canvas"></canvas>
+    <div class="main-flex-canvases">
+      <canvas id="canvas1"></canvas>
+      <canvas id="canvas2"></canvas>
+
       <div style="display:none;">
         <img id="ace-spades-card" src="../img/poker-cards/2S.png">
         <img id="king-spades-card" src="../img/poker-cards/3S.png">
@@ -92,14 +94,24 @@
         <img id="three-clubs-card" src="../img/poker-cards/KC.png">
         <img id="two-clubs-card" src="../img/poker-cards/AC.png">
       </div>
+
       <script src="../src/card.js"></script>
-      <script src="../src/deck.js"></script>
       <script src="../src/hand.js"></script>
+      <script src="../src/deck.js"></script>
       <script src="../src/poker-hand.js"></script>
       <script src="../src/poker.js"></script>
       <script>
         let poker = new Poker();
       </script>
+    </div>
+    <div class="main-flex-panels" id="secondary-flex-panels">
+      <div class="secondary-flex-button">
+        <button type="button" onclick="poker.dealHands();">Repartir Mano</button>
+      </div>
+      <div class="secondary-flex-solution">
+        <p> Ganador: </p>
+        <p></p>
+      </div>
     </div>
   </section>
 

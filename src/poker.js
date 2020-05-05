@@ -21,7 +21,7 @@ if (typeof require !== 'undefined') { // Execution in node
 }
 /* istanbul ignore next */
 else { // Execution in bfileser
-  PokerHandOnPoker = Board;
+  PokerHandOnPoker = PokerHand;
   DeckOnPoker = Deck;
   CardOnPoker = Card;
 }
@@ -40,15 +40,23 @@ class Poker {
    */
   constructor() {
     this.deck = new DeckOnPoker();
-    this.firstCard = new CardOnPoker(2, 2);
+    this.numOfCardsByHand = 5
+    this.firstPlayer = new PokerHandOnPoker('', this.numOfCardsByHand);
+    this.secondPlayer = new PokerHandOnPoker('', this.numOfCardsByHand);
+    this.hands = [this.firstPlayer, this.secondPlayer];
     this.CANVAS1 = document.getElementById("canvas1");
     this.CANVAS2 = document.getElementById("canvas2");
     this.CONTEXT1 = this.CANVAS1.getContext("2d");
     this.CONTEXT2 = this.CANVAS2.getContext("2d");
-    this.CANVAS1.width = window.innerWidth - 100;
+    this.CANVAS1.width = window.innerWidth*2/3 - 100;
     this.CANVAS1.height = window.innerHeight / 2 - 100;
-    this.CANVAS2.width = window.innerWidth - 100;
+    this.CANVAS2.width = window.innerWidth*2/3 - 100;
     this.CANVAS2.height = window.innerHeight / 2 - 100;
+  }
+
+  dealHands() {
+    this.hands = this.deck.dealHands(this.hands, this.numOfCardsByHand);
+    this.hands[0].draw(this.CONTEXT1, this.CANVAS1);
   }
 }
 

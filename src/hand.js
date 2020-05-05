@@ -134,6 +134,10 @@ class Hand {
       }
     }
   }
+
+  draw(CONTEXT, CANVAS) {
+
+  }
 }
 
 if (typeof exports !== 'undefined') { // Execution in node

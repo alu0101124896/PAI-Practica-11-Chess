@@ -44,7 +44,7 @@ class Card {
   constructor(suit = CLUBS_ON_CARD, rank = TWO_ON_CARD) {
     this.suit = suit;
     this.rank = rank;
-    getImage();
+    this.getImage();
   }
 
   getImage() {

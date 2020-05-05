@@ -1,0 +1,125 @@
+/**
+ * @file poker.css
+ * @author Sergio Tabares Hernández <alu0101124896@ull.edu.es>
+ * @since Spring 2020
+ * @summary University of La Laguna
+ * @summary Computer Science - Interactive Aplication Programing
+ * @description This is a css file for the Poker. More info about it here:
+ *  https://en.wikipedia.org/wiki/Poker
+ */
+
+html {
+  text-align: center;
+}
+
+body {
+  background: linear-gradient(to bottom, #dbd7d1 0%, #edebe9 10%);
+  overflow: auto;
+  height: inherit;
+  margin: 0;
+}
+
+h1 {
+  color: #4d4d4d;
+}
+
+h2 {
+  color: #4d4d4d;
+}
+
+canvas {
+  background: white;
+  margin: 0 auto;
+  padding: 0;
+  border:3px solid black;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+a {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+#header-flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  margin: auto;
+  padding: 0.5%;
+}
+
+.title-header-flex-item {
+  font-size: 200%;
+  margin: 5px;
+}
+
+.header-flex-item {
+  font-size: 80%;
+  margin: 10px;
+}
+
+.spacer-header-flex-item {
+  flex-grow: 1;
+  font-size: 200%;
+  margin: 5px;
+}
+
+#main-flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.main-flex-canvases {
+  margin: auto;
+}
+
+.main-flex-panels {
+  background-color: #ffffff;
+  box-shadow: 0px 1px 1px 1px #aaaaaa;
+  flex-grow: 1;
+  border-radius: 2%;
+  margin: 2%;
+  padding: 2%;
+}
+
+#secondary-flex-panels {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-around;
+  height: 50%;
+  margin: 0 auto;
+}
+
+.secondary-flex-button {
+  background-color: #ffffff;
+  box-shadow: 0px 1px 1px 1px #aaaaaa;
+  flex-grow: 1;
+  border-radius: 2%;
+  margin: 2%;
+  padding: 2%;
+}
+
+.secondary-flex-solution {
+  background-color: #ffffff;
+  box-shadow: 0px 1px 1px 1px #aaaaaa;
+  flex-grow: 1;
+  border-radius: 2%;
+  margin: 2%;
+  padding: 2%;
+}
+
+footer {
+  background-color: #574634;
+  color: #bebebc;
+  font-size: 150%;
+  padding: 0.5%;
+  margin: 0;
+}
