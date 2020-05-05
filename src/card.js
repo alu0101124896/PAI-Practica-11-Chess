@@ -43,65 +43,30 @@ class Card {
   constructor(suit = CLUBS_ON_CARD, rank = TWO_ON_CARD) {
     this.suit = suit;
     this.rank = rank;
+    getImage();
   }
 
-  /**
-   * @description Function that generates a human readable string with the rank and suit of the card
-   *
-   * @returns {string} Returns a string with the suit and rank
-   * @memberof Card
-   */
-  toString() {
-    let rankString = '';
-    let suitString = '';
-    switch (this.rank) {
-      case ACE_ON_CARD:
-        rankString = 'Ace';
-        break;
-      case KING_ON_CARD:
-        rankString = 'King';
-        break;
-      case QUEEN_ON_CARD:
-        rankString = 'Queen';
-        break;
-      case JACK_ON_CARD:
-        rankString = 'Jack';
-        break;
-      case TEN_ON_CARD:
-        rankString = 'Ten';
-        break;
-      case NINE_ON_CARD:
-        rankString = 'Nine';
-        break;
-      case EIGHT_ON_CARD:
-        rankString = 'Eight';
-        break;
-      case SEVEN_ON_CARD:
-        rankString = 'Seven';
-        break;
-      case SIX_ON_CARD:
-        rankString = 'Six';
-        break;
-      case FIVE_ON_CARD:
-        rankString = 'Five';
-        break;
-      case FOUR_ON_CARD:
-        rankString = 'Four';
-        break;
-      case THREE_ON_CARD:
-        rankString = 'Three';
-        break;
-      case TWO_ON_CARD:
-        rankString = 'Two';
-        break;
-
-      default:
-        rankString = 'Unknown Rank';
-        break;
-    }
+  getImage() {
     switch (this.suit) {
       case SPADES_ON_CARD:
-        suitString = 'Spades';
+        switch (this.rank) {
+          case ACE_ON_CARD: this.img = document.getElementById('ace-spades-card'); break;
+          case KING_ON_CARD: this.img = document.getElementById('king-spades-card'); break;
+          case QUEEN_ON_CARD: this.img = document.getElementById('queen-spades-card'); break;
+          case JACK_ON_CARD: this.img = document.getElementById('jack-spades-card'); break;
+          case TEN_ON_CARD: this.img = document.getElementById('ten-spades-card'); break;
+          case NINE_ON_CARD: this.img = document.getElementById('nine-spades-card'); break;
+          case EIGHT_ON_CARD: this.img = document.getElementById('eight-spades-card'); break;
+          case SEVEN_ON_CARD: this.img = document.getElementById('seven-spades-card'); break;
+          case SIX_ON_CARD: this.img = document.getElementById('six-spades-card'); break;
+          case FIVE_ON_CARD: this.img = document.getElementById('five-spades-card'); break;
+          case FOUR_ON_CARD: this.img = document.getElementById('four-spades-card'); break;
+          case THREE_ON_CARD: this.img = document.getElementById('three-spades-card'); break;
+          case TWO_ON_CARD: this.img = document.getElementById('two-spades-card'); break;
+
+          default: console.error('Error: unknown rank of spades');
+            break;
+        }
         break;
       case HEARTS_ON_CARD:
         suitString = 'Hearts';
@@ -141,6 +106,32 @@ class Card {
     } else {
       return cardTwo;
     }
+  }
+
+  /* istanbul ignore next */
+  /**
+   * @description Function that draws the card at the given canvas
+   *
+   * @param {*} CONTEXT - Canvas context
+   * @param {*} CANVAS - Canvas
+   * @memberof TwoClubsCard
+   */
+  drawCard(CONTEXT, CANVAS) {
+    CONTEXT.drawImage(this.img, this.suit * (CANVAS.width / 8),
+      -this.rank * (CANVAS.width / 8), CANVAS.width / 8, -CANVAS.height / 8);
+  }
+
+  /* istanbul ignore next */
+  /**
+   * @description Function that draws the card at the given canvas when the
+   *  image is loaded
+   *
+   * @param {*} CONTEXT - Canvas context
+   * @param {*} CANVAS - Canvas
+   * @memberof TwoClubsCard
+   */
+  draw(CONTEXT, CANVAS) {
+    this.img.onload = this.drawCard(CONTEXT, CANVAS);
   }
 }
 

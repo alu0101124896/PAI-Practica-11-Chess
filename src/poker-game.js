@@ -11,15 +11,18 @@
 
 let PokerHandOnPokerGame;
 let DeckOnPokerGame;
+let TwoClubsCardOnPokerGame;
 /* istanbul ignore next */
 if (typeof require !== 'undefined') { // Execution in node
   PokerHandOnPokerGame = require('./poker-hand.js').PokerHand;
   DeckOnPokerGame = require('./deck.js').Deck;
+  TwoClubsCardOnPokerGame = require('./two-clubs-card.js').TwoClubsCard;
 }
 /* istanbul ignore next */
 else { // Execution in bfileser
   PokerHandOnPokerGame = Board;
   DeckOnPokerGame = Deck;
+  TwoClubsCardOnPokerGame = TwoClubsCard;
 }
 
 /**
@@ -35,6 +38,8 @@ class PokerGame {
    * @memberof PokerGame
    */
   constructor() {
+    this.deck = new DeckOnPokerGame();
+    this.firstCard = new TwoClubsCardOnPokerGame()
   }
 }
 
