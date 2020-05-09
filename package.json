@@ -1,5 +1,5 @@
 {
-  "name": "practica-10-chess-alu0101124896",
+  "name": "practica-11-chess-alu0101124896",
   "version": "1.0.0",
   "description": "Practica 11 Chess alu0101124896",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ULL-ESIT-INF-PAI-2019-2020/practica-10-chess-alu0101124896.git"
+    "url": "https://github.com/ULL-ESIT-INF-PAI-2019-2020/practica-11-chess-alu0101124896.git"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
